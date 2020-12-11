@@ -1,16 +1,16 @@
 {
-  "name": "vue-lib",
-  "version": "0.0.0",
-  "description": "Some awesome description",
-  "main": "dist/vue-lib.cjs.js",
-  "unpkg": "dist/vue-lib.global.js",
-  "jsdelivr": "dist/vue-lib.global.js",
-  "module": "dist/vue-lib.esm-bundler.js",
-  "types": "dist/vue-lib.d.ts",
+  "name": "vue-use-sound",
+  "version": "1.0.0",
+  "description": "🔊🔊 A Vue Hook for playing sound effects.",
+  "main": "dist/vue-use-sound.cjs.js",
+  "unpkg": "dist/vue-use-sound.global.js",
+  "jsdelivr": "dist/vue-use-sound.global.js",
+  "module": "dist/vue-use-sound.esm-bundler.js",
+  "types": "dist/vue-use-sound.d.ts",
   "sideEffects": false,
   "author": {
-    "name": "Eduardo San Martin Morote",
-    "email": "posva13@gmail.com"
+    "name": "Yaël GUILLOUX",
+    "email": "yael.guilloux@gmail.com"
   },
   "scripts": {
     "build": "rollup -c rollup.config.js",
@@ -24,7 +24,7 @@
   },
   "files": [
     "dist/*.js",
-    "dist/vue-lib.d.ts",
+    "dist/vue-use-sound.d.ts",
     "LICENSE",
     "README.md"
   ],
@@ -77,12 +77,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/posva/vue-lib.git"
+    "url": "git+https://github.com/Tahul/vue-use-sound.git"
   },
   "bugs": {
-    "url": "https://github.com/posva/vue-lib/issues"
+    "url": "https://github.com/Tahul/vue-use-sound/issues"
   },
-  "homepage": "https://github.com/posva/vue-lib#readme",
+  "homepage": "https://github.com/Tahul/vue-use-sound#readme",
   "dependencies": {
     "howler": "^2.2.1"
   }
