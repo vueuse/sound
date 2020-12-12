@@ -41,30 +41,36 @@ function useSound(
     duration = duration * 1000
   }
 
-  watch([url], () => {
-    if (HowlConstructor?.value && sound?.value) {
-      sound.value = new HowlConstructor.value({
-        src: [url],
-        volume,
-        onload: handleLoad,
-        ...delegated,
-      })
-    }
-  })
+  watch(
+    () => [url],
+    () => {
+      if (HowlConstructor?.value && sound?.value) {
+        sound.value = new HowlConstructor.value({
+          src: [url],
+          volume,
+          onload: handleLoad,
+          ...delegated,
+        })
+      }
+    },
+  )
 
-  watch([volume, playbackRate], () => {
-    if (sound?.value) {
-      sound.value.volume(volume)
-      sound.value.rate(playbackRate)
-    }
-  })
+  watch(
+    () => [volume, playbackRate],
+    () => {
+      if (sound.value) {
+        sound.value.volume(volume)
+        sound.value.rate(playbackRate)
+      }
+    },
+  )
 
   const play: PlayFunction = (options?: PlayOptions) => {
     if (typeof options === 'undefined') {
       options = {}
     }
 
-    if (!sound?.value || (!soundEnabled && !options.forceSoundEnabled)) {
+    if (!sound.value || (!soundEnabled && !options.forceSoundEnabled)) {
       return
     }
 
@@ -88,21 +94,21 @@ function useSound(
   }
 
   const stop = (id?: number) => {
-    if (!sound?.value) {
+    if (!sound.value) {
       return
     }
 
-    sound.value.stop(id)
+    sound.value.stop(typeof id === 'number' ? id : undefined)
 
     isPlaying.value = false
   }
 
   const pause = (id?: number) => {
-    if (!sound?.value) {
+    if (!sound.value) {
       return
     }
 
-    sound.value.pause(id)
+    sound.value.pause(typeof id === 'number' ? id : undefined)
 
     isPlaying.value = false
   }
@@ -110,11 +116,11 @@ function useSound(
   const returnedValue: ReturnedValue = [
     play,
     {
-      sound: sound.value,
+      sound,
+      isPlaying,
+      duration,
       pause,
       stop,
-      isPlaying: isPlaying.value,
-      duration: duration.value,
     },
   ]
 

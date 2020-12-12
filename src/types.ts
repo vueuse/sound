@@ -1,3 +1,5 @@
+import { Ref } from 'vue'
+
 export type SpriteMap = {
   [key: string]: [number, number]
 }
@@ -20,11 +22,11 @@ export interface PlayOptions {
 export type PlayFunction = (options?: PlayOptions) => void
 
 export interface ExposedData {
-  sound: Howl | null
+  sound: Ref<Howl | null>
   stop: (id?: number) => void
   pause: (id?: number) => void
-  isPlaying: boolean
-  duration: number | null
+  isPlaying: Ref<boolean>
+  duration: Ref<number | null>
 }
 
 export type ReturnedValue = [PlayFunction, ExposedData]
