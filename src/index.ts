@@ -1,7 +1,7 @@
 import { onMounted, ref, watch } from 'vue'
 import { HookOptions, PlayOptions, PlayFunction, ReturnedValue } from './types'
 
-export function useSound(
+function useSound(
   url: string,
   {
     volume = 1,
@@ -10,7 +10,7 @@ export function useSound(
     interrupt = false,
     onload,
     ...delegated
-  }: HookOptions,
+  }: HookOptions = {},
 ) {
   const HowlConstructor = ref<HowlStatic | null>(null)
   const isPlaying = ref<boolean>(false)
