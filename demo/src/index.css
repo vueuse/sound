@@ -4,12 +4,12 @@
 
 /* i n d i g o w a v e */
 html {
-  @apply bg-gradient-to-t from-indigo-600 to-indigo-900;
+  @apply h-full;
 }
 
 /* Flex body */
 body {
-  @apply text-white flex items-center justify-center;
+  @apply text-white flex items-center justify-center bg-gradient-to-b from-indigo-600 to-indigo-900 bg-cover bg-fixed;
 }
 
 /* Main layout css */
