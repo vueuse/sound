@@ -2,12 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body,
-#app {
-  @apply h-full w-full text-white;
+/* i n d i g o w a v e */
+html {
+  @apply bg-indigo-600;
 }
 
+/* Flex body */
 body {
-  @apply bg-indigo-600;
+  @apply text-white flex items-center justify-center;
+}
+
+/* Main layout css */
+#app {
+  @apply w-full md:w-8/12 xl:w-1/2 p-6;
+}
+
+/* PrismJS theme fix */
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  background: none;
 }
