@@ -10,9 +10,7 @@
       </button>
     </div>
 
-    <p class="p-4 mt-4 bg-indigo-400 rounded-t-xl">
-      Play a sound when hovering the trumpet.
-    </p>
+    <code-heading> Play a sound when hovering the trumpet. </code-heading>
 
     <code-block :codeText="CodeText" />
   </div>
@@ -23,10 +21,12 @@ import useSound from 'vue-use-sound'
 import trumpetSfx from '../assets/fanfare.mp3'
 import CodeBlock from './CodeBlock.vue'
 import CodeText from '../examples/intro.js'
+import CodeHeading from './CodeHeading.vue'
 
 export default {
   components: {
     CodeBlock,
+    CodeHeading,
   },
   setup() {
     const [play, { stop }] = useSound(trumpetSfx)
