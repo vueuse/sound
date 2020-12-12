@@ -9,19 +9,21 @@
       </h1>
     </div>
 
-    <intro />
+    <intro class="mt-6" />
     <increase-pitch class="mt-12" />
+    <drum-machine class="mt-12" />
   </div>
 </template>
 
 <script>
 import useSound from 'vue-use-sound'
 import Button from './assets/button.wav'
+import DrumMachine from './components/DrumMachine.vue'
 import IncreasePitch from './components/IncreasePitch.vue'
 import Intro from './components/Intro.vue'
 
 export default {
-  components: { Intro, IncreasePitch },
+  components: { Intro, IncreasePitch, DrumMachine },
   name: 'App',
   setup() {
     const [play] = useSound(Button)
