@@ -34,19 +34,7 @@ const outputConfigs = {
   // each file name has the format: `dist/${name}.${format}.js`
   // format being a key of this object
   'esm-bundler': {
-    file: pkg.module,
-    format: `es`,
-  },
-  cjs: {
-    file: pkg.main,
-    format: `cjs`,
-  },
-  global: {
-    file: pkg.unpkg,
-    format: `iife`,
-  },
-  esm: {
-    file: pkg.browser || pkg.module.replace('-bundler.js', '-browser.js'),
+    dir: 'dist/',
     format: `es`,
   },
 }
@@ -54,7 +42,7 @@ const outputConfigs = {
 const allFormats = Object.keys(outputConfigs)
 const packageFormats = allFormats
 const packageConfigs = packageFormats.map((format) =>
-  createConfig(format, outputConfigs[format])
+  createConfig(format, outputConfigs[format]),
 )
 
 // only add the production ready if we are bundling the options
@@ -124,7 +112,7 @@ function createConfig(format, output, plugins = []) {
         // isBrowserBuild?
         isGlobalBuild || isRawESMBuild || isBundlerESMBuild,
         isGlobalBuild,
-        isNodeBuild
+        isNodeBuild,
       ),
       ...nodePlugins,
       ...plugins,
@@ -143,7 +131,7 @@ function createReplacePlugin(
   isBundlerESMBuild,
   isBrowserBuild,
   isGlobalBuild,
-  isNodeBuild
+  isNodeBuild,
 ) {
   const replacements = {
     __COMMIT__: `"${process.env.COMMIT}"`,
@@ -196,6 +184,6 @@ function createMinifiedConfig(format) {
           pure_getters: true,
         },
       }),
-    ]
+    ],
   )
 }
