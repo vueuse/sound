@@ -1,12 +1,7 @@
 <template>
   <div class="flex flex-col justify-center">
-    <div class="flex justify-center">
-      <button
-        class="p-4 text-6xl bg-indigo-400 rounded-full"
-        @click="handleClick"
-      >
-        <span role="img" aria-label="Person with lines near mouth"> 🗣 </span>
-      </button>
+    <div class="flex justify-center mb-6">
+      <Button @click="handleClick">🗣</Button>
     </div>
 
     <code-heading> Increase pitch each time we click the button. </code-heading>
@@ -22,9 +17,10 @@ import glugSfx from '../assets/glug.mp3'
 import CodeText from '../examples/increatePitch'
 import CodeHeading from './CodeHeading.vue'
 import CodeBlock from './CodeBlock.vue'
+import Button from './Button.vue'
 
 export default {
-  components: { CodeHeading, CodeBlock },
+  components: { CodeHeading, CodeBlock, Button },
   setup() {
     const playbackRate = ref(0.75)
 

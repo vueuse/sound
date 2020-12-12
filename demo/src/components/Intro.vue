@@ -1,13 +1,7 @@
 <template>
   <div class="flex flex-col justify-center">
-    <div class="flex justify-center">
-      <button
-        class="p-4 text-6xl bg-indigo-400 rounded-full"
-        @mouseover="play"
-        @mouseleave="stop"
-      >
-        <span role="img" aria-label="trumpet"> 🎺 </span>
-      </button>
+    <div class="flex justify-center mb-6">
+      <Button @mouseover="play" @mouseleave="stop"> 🎺 </Button>
     </div>
 
     <code-heading> Play a sound when hovering the trumpet. </code-heading>
@@ -22,9 +16,11 @@ import trumpetSfx from '../assets/fanfare.mp3'
 import CodeBlock from './CodeBlock.vue'
 import CodeText from '../examples/intro.js'
 import CodeHeading from './CodeHeading.vue'
+import Button from './Button.vue'
 
 export default {
   components: {
+    Button,
     CodeBlock,
     CodeHeading,
   },

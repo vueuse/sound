@@ -1,14 +1,7 @@
 export default `
 <template>
-  <div class="flex flex-col justify-center">
-    <div class="flex justify-center">
-      <button
-        class="p-4 text-6xl bg-indigo-400 rounded-full"
-        @click="handleClick"
-      >
-        <span role="img" aria-label="Person with lines near mouth"> 🗣 </span>
-      </button>
-    </div>
+  <div class="flex justify-center">
+    <Button @click="handleClick" label="Person with lines from mouth">🗣</Button>
   </div>
 </template>
 
@@ -16,8 +9,10 @@ export default `
 import { ref } from 'vue'
 import useSound from 'vue-use-sound'
 import glugSfx from '../assets/glug.mp3'
+import Button from './Button.vue'
 
 export default {
+  components: { Button },
   setup() {
     const playbackRate = ref(0.75)
 
@@ -33,7 +28,7 @@ export default {
     }
 
     return {
-      handleClick,
+      handleClick
     }
   },
 }
