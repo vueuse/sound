@@ -2,7 +2,10 @@ export default `
 <template>
   <div class="flex flex-col justify-center">
     <div class="flex justify-center">
-      <button class="text-4xl" @click="handleClick">
+      <button
+        class="p-4 text-6xl bg-indigo-400 rounded-full"
+        @click="handleClick"
+      >
         <span role="img" aria-label="Person with lines near mouth"> 🗣 </span>
       </button>
     </div>

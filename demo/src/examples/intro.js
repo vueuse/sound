@@ -1,8 +1,12 @@
 export default `
 <template>
   <div class="flex justify-center">
-    <button class="text-4xl" @mouseover="play" @mouseleave="stop">
-      <span role="img" aria-label="trumpet"> 🎺 </span>
+      <button
+        class="p-4 text-6xl bg-indigo-400 rounded-full"
+        @mouseover="play"
+        @mouseleave="stop"
+      >
+      <span role="img" aria-label="Trumpet"> 🎺 </span>
     </button>
   </div>
 </template>
