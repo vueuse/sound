@@ -19,12 +19,13 @@
   },
   "scripts": {
     "build": "rollup -c rollup.config.js",
-    "build:dts": "api-extractor run --local --verbose",
+    "watch": "rollup -w -c rollup.config.js",
     "lint": "prettier -c --parser typescript \"{src,__tests__,e2e}/**/*.[jt]s?(x)\"",
     "lint:fix": "yarn run lint --write",
     "test:types": "tsc --build tsconfig.json",
-    "test:unit": "jest --coverage",
-    "test": "yarn run test:types && yarn run test:unit && yarn run build && yarn run build:dts"
+    "test": "yarn run test:types && yarn run test:unit && yarn run build && yarn run build:dts",
+    "dev:demo": "cd demo && npx vite",
+    "build:demo": "cd demo && npx vite build"
   },
   "files": [
     "dist/*.js",
@@ -52,8 +53,8 @@
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.29.0",
     "typescript": "^4.1.2",
-    "vue": "^3.0.4",
-    "yorkie": "^2.0.0"
+    "yorkie": "^2.0.0",
+    "vue": "^3.0.4"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"

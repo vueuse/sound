@@ -1,5 +1,6 @@
 {
   "include": ["src/global.d.ts", "src/**/*.ts", "__tests__/**/*.ts"],
+  "exclude": ["dist", "node_modules"],
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": ".",
@@ -26,6 +27,6 @@
     "removeComments": false,
     "jsx": "preserve",
     "lib": ["esnext", "dom"],
-    "types": ["jest", "node"]
+    "types": ["node"]
   }
 }
