@@ -10,16 +10,18 @@
     </div>
 
     <intro />
+    <increase-pitch class="mt-12" />
   </div>
 </template>
 
 <script>
 import useSound from 'vue-use-sound'
 import Button from './assets/button.wav'
+import IncreasePitch from './components/IncreasePitch.vue'
 import Intro from './components/Intro.vue'
 
 export default {
-  components: { Intro },
+  components: { Intro, IncreasePitch },
   name: 'App',
   setup() {
     const [play] = useSound(Button)

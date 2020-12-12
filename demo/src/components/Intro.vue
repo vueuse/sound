@@ -2,7 +2,7 @@
   <div class="flex flex-col justify-center">
     <div class="flex justify-center">
       <button
-        class="block text-6xl flex-0"
+        class="p-4 text-6xl bg-indigo-400 rounded-full"
         @mouseover="play"
         @mouseleave="stop"
       >
