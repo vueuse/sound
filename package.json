@@ -9,11 +9,9 @@
   ],
   "version": "1.0.0",
   "description": "🔊🔊 A Vue Hook for playing sound effects.",
-  "main": "dist/vue-use-sound.cjs.js",
-  "unpkg": "dist/vue-use-sound.global.js",
-  "jsdelivr": "dist/vue-use-sound.global.js",
-  "module": "dist/vue-use-sound.esm-bundler.js",
-  "types": "dist/vue-use-sound.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/src/index.d.ts",
   "sideEffects": false,
   "author": {
     "name": "Yaël GUILLOUX",
@@ -36,7 +34,7 @@
     "README.md"
   ],
   "dependencies": {
-    "howler": "^2.2.1"
+    "howler": "^2.1.2"
   },
   "peerDependencies": {
     "vue": "^3.0.0-beta.20"
@@ -48,7 +46,7 @@
     "@rollup/plugin-node-resolve": "^11.0.0",
     "@rollup/plugin-replace": "^2.3.4",
     "@size-limit/preset-small-lib": "^4.9.1",
-    "@types/howler": "^2.2.1",
+    "@types/howler": "2.1.2",
     "@types/jest": "^26.0.19",
     "@types/jsdom": "^16.2.5",
     "@vue/test-utils": "^2.0.0-beta.12",
