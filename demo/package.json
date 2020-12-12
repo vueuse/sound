@@ -6,6 +6,7 @@
     "build": "vite build"
   },
   "dependencies": {
+    "prismjs": "^1.22.0",
     "vue": "^3.0.4",
     "vue-use-sound": "file:.."
   },
