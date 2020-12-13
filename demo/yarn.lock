@@ -2365,6 +2365,11 @@ vite@^1.0.0-rc.13:
   dependencies:
     howler "^2.1.2"
 
+vue3-spring@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/vue3-spring/-/vue3-spring-0.0.2.tgz#3e2d9291ae68c0dd3459d9ba44a0b257282f1fb2"
+  integrity sha512-fBH6fxzJiB/ZtcuTqlzUWCgoo9Hx1dclFPzYCjz/DNOFqTzKKmcuIRObl/Y262h8TIski1z1+FiKnviCGN2U5Q==
+
 vue@^3.0.3, vue@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.0.4.tgz#872c65c143f5717bd5387c61613d9f55f4cc0f43"
