@@ -19,7 +19,7 @@
         ↩️&nbsp;&nbsp;Bring me back to GitHub
       </a>
 
-      <p class="mb-6">
+      <p class="mb-6 text-center">
         This package has been written by
         <a href="https://twitter.com/yaeeelglx" target="_blank"
           >Yaël Guilloux</a
