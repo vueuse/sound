@@ -9,7 +9,8 @@
       </h1>
     </div>
 
-    <intro class="mt-6" />
+    <intro class="mt-12" />
+    <checkboxes class="mt-12" />
     <increase-pitch class="mt-12" />
     <drum-machine class="mt-12" />
   </div>
@@ -21,9 +22,10 @@ import Button from './assets/button.wav'
 import DrumMachine from './components/DrumMachine.vue'
 import IncreasePitch from './components/IncreasePitch.vue'
 import Intro from './components/Intro.vue'
+import Checkboxes from './components/Checkboxes.vue'
 
 export default {
-  components: { Intro, IncreasePitch, DrumMachine },
+  components: { Intro, IncreasePitch, DrumMachine, Checkboxes },
   name: 'App',
   setup() {
     const [play] = useSound(Button)
