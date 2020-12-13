@@ -55,11 +55,11 @@ export default {
 
 ### Playing on hover
 
-This example is shown in the [demo](https://vue-use-sound.netlify.app/#hover).
+This example is shown in the [demo](https://vue-use-sound.netlify.app#hover).
 
 ### Increase pitch on every click
 
-This example is shown in the [demo](https://vue-use-sound.netlify.app/#pitch).
+This example is shown in the [demo](https://vue-use-sound.netlify.app#pitch).
 
 ## Usage Notes
 
@@ -174,7 +174,7 @@ const [play, exposedData] = useSound('/meow.mp3')
 
 An audio sprite is a single audio file that holds multiple samples. Instead of loading many individual sounds, you can load a single file and slice it up into multiple sections which can be triggered independently.
 
-> There can be a performance benefit to this, since it's less parallel network requests, but it can also be worth doing this if a single component needs multiple samples. See the [Drum Machine story](https://vue-use-sound.netlify.app/#drums) for an example.
+> There can be a performance benefit to this, since it's less parallel network requests, but it can also be worth doing this if a single component needs multiple samples. See the [Drum Machine component](https://vue-use-sound.netlify.app#drums) for an example.
 
 For sprites, we'll need to define a `SpriteMap`. It looks like this:
 

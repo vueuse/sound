@@ -9,10 +9,10 @@
       </h1>
     </div>
 
-    <intro class="mt-12" />
-    <checkboxes class="mt-12" />
-    <increase-pitch class="mt-12" />
-    <drum-machine class="mt-12" />
+    <intro id="#hover" class="mt-12" />
+    <checkboxes id="#checkboxes" class="mt-12" />
+    <increase-pitch id="#pitch" class="mt-12" />
+    <drum-machine id="#drums" class="mt-12" />
   </div>
 </template>
 
