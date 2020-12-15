@@ -1,5 +1,8 @@
 <template>
-  <button class="p-4 text-6xl bg-indigo-400 rounded-full" v-bind="props">
+  <button
+    class="p-4 text-6xl bg-indigo-400 rounded-full focus:outline-none focus:ring"
+    v-bind="props"
+  >
     <span role="img" :aria-label="label">
       <slot />
     </span>
