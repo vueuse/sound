@@ -1,4 +1,4 @@
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue-demi'
 import { HookOptions, PlayOptions, PlayFunction, ReturnedValue } from './types'
 
 function useSound(
