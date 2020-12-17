@@ -23,7 +23,7 @@ yarn add vue-use-sound
 Or, use NPM:
 
 ```bash
-yarn add vue-use-sound
+npm install vue-use-sound
 ```
 
 ## Examples
