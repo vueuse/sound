@@ -6,6 +6,7 @@ This library is a Vue version of the [useSound](https://github.com/joshwcomeau/u
 
 - 👂 Lets your website communicate using 2 human senses instead of 1
 - 🔥 Best used with Vue Composition API
+- ✅ Support both Vue 2 and Vue 3 using [vue-demi](https://github.com/antfu/vue-demi) by [@antfu](https://github.com/antfu)
 - ⚡️ <1kb bytes (gzip) in your bundle! ~10kb loaded async.
 - ✨ Built with TypeScript
 - 🗣 Uses a powerful, battle-tested audio utility: **Howler.js**
@@ -261,6 +262,6 @@ export default {
 
 All the credit behind this idea goes to [Josh W. Comeau](https://github.com/joshwcomeau).
 
-This packages aims to implement the exact same things as the React [useSound](https://github.com/joshwcomeau) hook, but for Vue 3 and its wonderful composition API.
+This packages aims to implement the exact same things as the React [useSound](https://github.com/joshwcomeau) hook, but for Vue and its wonderful Composition API.
 
-The documentation of this package has only been updated for Vue 3.
+The documentation of this package has only been updated for Vue Composition API instead of React Hooks.
