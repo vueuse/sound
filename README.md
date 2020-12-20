@@ -6,7 +6,7 @@ This library is a Vue version of the [useSound](https://github.com/joshwcomeau/u
 
 - 👂 Lets your website communicate using 2 human senses instead of 1
 - 🔥 Best used with Vue Composition API
-- ✅ Support both Vue 2 and Vue 3 using [vue-demi](https://github.com/antfu/vue-demi) by [@antfu](https://github.com/antfu)
+- ✅ Support both Vue 2 and Vue 3 using [vue-demi](https://github.com/antfu/vue-demi) by [antfu](https://github.com/antfu)
 - ⚡️ <1kb bytes (gzip) in your bundle! ~10kb loaded async.
 - ✨ Built with TypeScript
 - 🗣 Uses a powerful, battle-tested audio utility: **Howler.js**
