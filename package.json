@@ -7,7 +7,7 @@
     "sound",
     "hook"
   ],
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "🔊🔊 A Vue Hook for playing sound effects.",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -28,8 +28,8 @@
     "build:demo": "cd demo && npx vite build"
   },
   "files": [
-    "dist/*.js",
-    "dist/vue-use-sound.d.ts",
+    "dist/*",
+    "dist/src/*",
     "LICENSE",
     "README.md"
   ],
