@@ -11,7 +11,7 @@
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
-    "allowJs": false,
+    "skipLibCheck": true,
 
     "noUnusedLocals": true,
     "strictNullChecks": true,
@@ -27,6 +27,6 @@
     "removeComments": false,
     "jsx": "preserve",
     "lib": ["esnext", "dom"],
-    "types": ["node"]
+    "types": ["node", "jest"]
   }
 }

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import path from 'path'
 import ts from 'rollup-plugin-typescript2'
 import replace from '@rollup/plugin-replace'
@@ -12,10 +13,12 @@ function getAuthors(pkg) {
   const { contributors, author } = pkg
 
   const authors = new Set()
+
   if (contributors && contributors)
     contributors.forEach((contributor) => {
       authors.add(contributor.name)
     })
+
   if (author) authors.add(author.name)
 
   return Array.from(authors).join(', ')
@@ -151,6 +154,7 @@ function createReplacePlugin(
     // is targeting Node (SSR)?
     __NODE_JS__: isNodeBuild,
   }
+
   // allow inline overrides like
   //__RUNTIME_COMPILE__=true yarn build
   Object.keys(replacements).forEach((key) => {
@@ -158,6 +162,7 @@ function createReplacePlugin(
       replacements[key] = process.env[key]
     }
   })
+
   return replace(replacements)
 }
 
