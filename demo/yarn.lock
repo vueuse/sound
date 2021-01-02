@@ -2360,10 +2360,16 @@ vite@^1.0.0-rc.13:
     vue "^3.0.3"
     ws "^7.3.1"
 
+vue-demi@^0.5.3:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.5.3.tgz#ec0f10b2c56d5958f31363afaa2ef8b8b9c4e6ec"
+  integrity sha512-1uW/aIJOEkRbyK3FBeReKbbMAZc/V5yUo4FQRprufm4GgMnAmJSSyk8mTJ9IgR4pbbCsQ7FddVHcuwz4IDEfGg==
+
 "vue-use-sound@file:..":
-  version "1.0.0"
+  version "1.0.3"
   dependencies:
     howler "^2.1.2"
+    vue-demi "^0.5.3"
 
 vue3-spring@^0.0.2:
   version "0.0.2"
