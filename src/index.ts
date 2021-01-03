@@ -1,5 +1,10 @@
 import { onMounted, ref, watch } from 'vue-demi'
-import { HookOptions, PlayOptions, PlayFunction, ReturnedValue } from './types'
+import {
+  ComposableOptions,
+  PlayFunction,
+  PlayOptions,
+  ReturnedValue,
+} from './types'
 
 function useSound(
   url: string,
@@ -10,7 +15,7 @@ function useSound(
     interrupt = false,
     onload,
     ...delegated
-  }: HookOptions = {},
+  }: ComposableOptions = {},
 ) {
   const HowlConstructor = ref<HowlStatic | null>(null)
   const isPlaying = ref<boolean>(false)

@@ -4,7 +4,7 @@ export type SpriteMap = {
   [key: string]: [number, number]
 }
 
-export interface HookOptions {
+export interface ComposableOptions {
   volume?: number
   playbackRate?: number
   interrupt?: boolean

@@ -11,7 +11,7 @@ This library is a Vue version of the [useSound](https://github.com/joshwcomeau/u
 - ✨ Built with TypeScript
 - 🗣 Uses a powerful, battle-tested audio utility: **Howler.js**
 
-If you want to take a quick look at the hook in effect, you might want to visit the [demo](https://vue-use-sound.netlify.app).
+If you want to take a quick look at the composable in effect, you might want to visit the [demo](https://vue-use-sound.netlify.app).
 
 ## Installation
 
@@ -84,14 +84,14 @@ const playbackRate = ref(0.75)
 const [play] = useSound('/path/to/sound', { playbackRate })
 ```
 
-`playbackRate` doesn't just serve as an _initial_ value for the sound effect. If `playbackRate` changes, the sound will immediately begin playing at a new rate. This is true for all options passed to the `useSound` hook.
+`playbackRate` doesn't just serve as an _initial_ value for the sound effect. If `playbackRate` changes, the sound will immediately begin playing at a new rate. This is true for all options passed to the `useSound` composable.
 
 ## API Documentation
 
-The `useSound` hook takes two arguments:
+The `useSound` composable takes two arguments:
 
 - A URL to the sound that it wil load
-- A config object (`HookOptions`)
+- A config object (`ComposableOptions`)
 
 It produces an array with two values:
 
@@ -102,7 +102,7 @@ When calling the function to play the sound, you can pass it a set of options (`
 
 Let's go through each of these in turn.
 
-### HookOptions
+### ComposableOptions
 
 When calling `useSound`, you can pass it a variety of options:
 
@@ -119,13 +119,13 @@ When calling `useSound`, you can pass it a variety of options:
 - `playbackRate` is a number from `0.5` to `4`. It can be used to slow down or speed up the sample. Like a turntable, changes to speed also affect pitch.
 - `interrupt` specifies whether or not the sound should be able to "overlap" if the `play` function is called again before the sound has ended.
 - `soundEnabled` allows you to pass a value (typically from context or redux or something) to mute all sounds. Note that this can be overridden in the `PlayOptions`, see below
-- `sprite` allows you to use a single `useSound` hook for multiple sound effects. See [“Sprites”](https://github.com/Tahul/vue-use-sound#sprites) below.
+- `sprite` allows you to use a single `useSound` composable for multiple sound effects. See [“Sprites”](https://github.com/Tahul/vue-use-sound#sprites) below.
 
-`[delegated]` refers to the fact that any additional argument you pass in `HookOptions` will be forwarded to the `Howl` constructor. See "Escape hatches" below for more information.
+`[delegated]` refers to the fact that any additional argument you pass in `ComposableOptions` will be forwarded to the `Howl` constructor. See "Escape hatches" below for more information.
 
 ### The `play` function
 
-When calling the hook, you get back a play function as the first item in the tuple:
+When calling the composable, you get back a play function as the first item in the tuple:
 
 ```js
 const [play] = useSound('/meow.mp3')
@@ -141,12 +141,12 @@ You can call this function without any arguments when you want to trigger the so
 | playbackRate      | number  |
 
 - `id` is used for sprite identification. See [“Sprites”](https://github.com/Tahul/vue-use-sound#sprites) below.
-- `forceSoundEnabled` allows you to override the `soundEnabled` boolean passed to `HookOptions`. You generally never want to do this. The only exception I've found: triggering a sound on the "Mute" button.
-- `playbackRate` is another way you can set a new playback rate, same as in `HookOptions`. In general you should prefer to do it through `HookOptions`, this is an escape hatch.
+- `forceSoundEnabled` allows you to override the `soundEnabled` boolean passed to `ComposableOptions`. You generally never want to do this. The only exception I've found: triggering a sound on the "Mute" button.
+- `playbackRate` is another way you can set a new playback rate, same as in `ComposableOptions`. In general you should prefer to do it through `ComposableOptions`, this is an escape hatch.
 
 ### ExposedData
 
-The hook produces a tuple with 2 options, the play function and an `ExposedData` object:
+The composable produces a tuple with 2 options, the play function and an `ExposedData` object:
 
 ```js
 const [play, exposedData] = useSound('/meow.mp3')
@@ -196,7 +196,7 @@ This visualization might make it clearer:
 
 ![Waveform visualization showing how each sprite occupies a chunk of time, and is labeled by its start time and duration](./docs/sprite-explanation.png)
 
-We can pass our SpriteMap as one of our HookOptions:
+We can pass our SpriteMap as one of our ComposableOptions:
 
 ```js
 const [play] = useSound('/path/to/sprite.mp3', {
@@ -220,7 +220,7 @@ To play a specific sprite, we'll pass its `id` when calling the `play` function:
 
 Howler is a very powerful library, and we've only exposed a tiny slice of what it can do in `useSound`. We expose two escape hatches to give you more control.
 
-First, any unrecognized option you pass to `HookOptions` will be delegated to `Howl`. You can see the [full list](https://github.com/goldfire/howler.js#options) of options in the Howler docs. Here's an example of how we can use `onend` to fire a function when our sound stops playing:
+First, any unrecognized option you pass to `ComposableOptions` will be delegated to `Howl`. You can see the [full list](https://github.com/goldfire/howler.js#options) of options in the Howler docs. Here's an example of how we can use `onend` to fire a function when our sound stops playing:
 
 ```js
 const [play] = useSound('/thing.mp3', {
