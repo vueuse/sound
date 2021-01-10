@@ -7,7 +7,7 @@
     "sound",
     "hook"
   ],
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "🔊🔊 A Vue composable for playing sound effects.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -26,8 +26,7 @@
     "test:types": "tsc --build tsconfig.json",
     "test": "yarn run test:types && yarn run test:unit && yarn run build && yarn run build:dts",
     "dev:demo": "cd demo && npx vite",
-    "build:demo": "cd demo && npx vite build",
-    "publish": "yarn build && npm publish"
+    "build:demo": "cd demo && npx vite build"
   },
   "files": [
     "dist/*",
