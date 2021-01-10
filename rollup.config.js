@@ -4,6 +4,7 @@ import resolve from '@rollup/plugin-node-resolve'
 import replace from '@rollup/plugin-replace'
 import pascalcase from 'pascalcase'
 import path from 'path'
+import del from 'rollup-plugin-delete'
 import ts from 'rollup-plugin-typescript2'
 
 const pkg = require('./package.json')
@@ -111,6 +112,7 @@ function createConfig(format, output, plugins = []) {
     external,
     inlineDynamicImports: isGlobalBuild,
     plugins: [
+      del({ targets: `dist/${format}` }),
       tsPlugin,
       createReplacePlugin(
         isProductionBuild,
