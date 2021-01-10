@@ -9,9 +9,10 @@
   ],
   "version": "1.0.6",
   "description": "🔊🔊 A Vue composable for playing sound effects.",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/src/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "unpkg": "dist/global/index.js",
+  "types": "dist/esm/src/index.d.ts",
   "sideEffects": false,
   "author": {
     "name": "Yaël GUILLOUX",
