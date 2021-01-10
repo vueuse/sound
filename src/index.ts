@@ -49,7 +49,7 @@ function useSound(
   watch(
     () => [url],
     () => {
-      if (HowlConstructor?.value && sound?.value) {
+      if (HowlConstructor && HowlConstructor.value && sound && sound.value) {
         sound.value = new HowlConstructor.value({
           src: [url],
           volume,
@@ -90,7 +90,7 @@ function useSound(
     sound.value.play(options.id)
 
     sound.value.once('end', () => {
-      if (!sound.value?.playing()) {
+      if (sound && sound.value && !sound.value.playing()) {
         isPlaying.value = false
       }
     })
