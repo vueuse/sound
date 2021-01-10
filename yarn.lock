@@ -221,6 +221,13 @@
     "@vue/compiler-core" "3.0.5"
     "@vue/shared" "3.0.5"
 
+"@vue/composition-api@1.0.0-beta.18":
+  version "1.0.0-beta.18"
+  resolved "https://registry.yarnpkg.com/@vue/composition-api/-/composition-api-1.0.0-beta.18.tgz#9c91ed2fc297e643defee95f16c551d457384239"
+  integrity sha512-5Ins/G+un8rZoXRllMquvuihHYUMz7EKxgCPTvJiBRml0gRrOz2eRisQbjzj8fuTC6yeURjySpOKXdVkTV4HJA==
+  dependencies:
+    tslib "^2.0.1"
+
 "@vue/reactivity@3.0.5":
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/@vue/reactivity/-/reactivity-3.0.5.tgz#e3789e4d523d845f9ae0b4d770e2b45594742fd2"
@@ -1474,6 +1481,11 @@ tslib@^1.9.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
 
+tslib@^2.0.1:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
+  integrity sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A==
+
 type-fest@^0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.11.0.tgz#97abf0872310fed88a5c466b25681576145e33f1"
@@ -1494,7 +1506,7 @@ vue-demi@^0.5.3:
   resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.5.3.tgz#ec0f10b2c56d5958f31363afaa2ef8b8b9c4e6ec"
   integrity sha512-1uW/aIJOEkRbyK3FBeReKbbMAZc/V5yUo4FQRprufm4GgMnAmJSSyk8mTJ9IgR4pbbCsQ7FddVHcuwz4IDEfGg==
 
-vue@^3.0.4:
+vue@3.0.5:
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.0.5.tgz#de1b82eba24abfe71e0970fc9b8d4b2babdc3fe1"
   integrity sha512-TfaprOmtsAfhQau7WsomXZ8d9op/dkQLNIq8qPV3A0Vxs6GR5E+c1rfJS1SDkXRQj+dFyfnec7+U0Be1huiScg==
