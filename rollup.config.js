@@ -44,7 +44,7 @@ const outputConfigs = {
   cjs: {
     dir: 'dist/cjs',
     format: 'cjs',
-    exports: 'auto',
+    exports: 'named',
   },
   global: {
     dir: 'dist/global',
@@ -102,6 +102,10 @@ function createConfig(format, output, plugins = []) {
   hasTSChecked = true
 
   const external = ['vue']
+
+  if (!isGlobalBuild) {
+    external.push('vue-demi')
+  }
 
   const nodePlugins = [resolve(), commonjs()]
 
