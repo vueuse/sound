@@ -27,6 +27,6 @@
     "removeComments": false,
     "jsx": "preserve",
     "lib": ["esnext", "dom"],
-    "types": ["node", "jest"]
+    "types": ["node", "jest", "howler"]
   }
 }
