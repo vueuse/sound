@@ -1,4 +1,4 @@
-import { onMounted, ref, watch } from 'vue-demi'
+import { isRef, onMounted, ref, watch } from 'vue-demi'
 import {
   ComposableOptions,
   PlayFunction,
@@ -28,8 +28,8 @@ function useSound(
 
       sound.value = new HowlConstructor.value({
         src: [url],
-        volume,
-        rate: playbackRate,
+        volume: isRef(volume) ? volume.value : volume,
+        rate: isRef(playbackRate) ? playbackRate.value : playbackRate,
         onload: handleLoad,
         ...delegated,
       })
@@ -52,7 +52,8 @@ function useSound(
       if (HowlConstructor && HowlConstructor.value && sound && sound.value) {
         sound.value = new HowlConstructor.value({
           src: [url],
-          volume,
+          volume: isRef(volume) ? volume.value : volume,
+          rate: isRef(playbackRate) ? playbackRate.value : playbackRate,
           onload: handleLoad,
           ...delegated,
         })
@@ -64,8 +65,12 @@ function useSound(
     () => [volume, playbackRate],
     () => {
       if (sound.value) {
-        sound.value.volume(volume)
-        sound.value.rate(playbackRate)
+        isRef(volume)
+          ? sound.value.volume(volume.value)
+          : sound.value.volume(volume)
+        isRef(playbackRate)
+          ? sound.value.rate(playbackRate.value)
+          : sound.value.rate(playbackRate)
       }
     },
   )
