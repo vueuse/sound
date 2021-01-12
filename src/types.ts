@@ -1,12 +1,14 @@
-import { Ref } from 'vue-demi'
+import { ComputedRef, Ref } from 'vue-demi'
+
+export type MaybeRef<T> = T | Ref<T> | ComputedRef<T>
 
 export type SpriteMap = {
   [key: string]: [number, number]
 }
 
 export interface ComposableOptions {
-  volume?: number
-  playbackRate?: number
+  volume?: MaybeRef<number>
+  playbackRate?: MaybeRef<number>
   interrupt?: boolean
   soundEnabled?: boolean
   sprite?: SpriteMap
