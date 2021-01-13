@@ -1,4 +1,9 @@
+import { Howl, HowlOptions } from 'howler'
 import { ComputedRef, Ref } from 'vue-demi'
+
+export interface HowlStatic {
+  new (properties: HowlOptions): Howl
+}
 
 export type MaybeRef<T> = T | Ref<T> | ComputedRef<T>
 
