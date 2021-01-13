@@ -1,6 +1,8 @@
+import { Howl } from 'howler'
 import { onMounted, ref, unref, watch } from 'vue-demi'
 import {
   ComposableOptions,
+  HowlStatic,
   PlayFunction,
   PlayOptions,
   ReturnedValue,
