@@ -13,6 +13,7 @@
     <intro id="#hover" class="mt-12" />
     <increase-pitch id="#pitch" class="mt-12" />
     <drum-machine id="#drums" class="mt-12" />
+    <volume id="volume" class="mt-12" />
 
     <div class="flex flex-col items-center justify-center">
       <a href="https://github.com/Tahul/vue-use-sound" class="mt-12 mb-6">
@@ -44,9 +45,10 @@ import DrumMachine from './components/DrumMachine.vue'
 import IncreasePitch from './components/IncreasePitch.vue'
 import Intro from './components/Intro.vue'
 import Checkboxes from './components/Checkboxes.vue'
+import Volume from './components/Volume.vue'
 
 export default {
-  components: { Intro, IncreasePitch, DrumMachine, Checkboxes },
+  components: { Intro, IncreasePitch, DrumMachine, Checkboxes, Volume },
   name: 'App',
   setup() {
     const [play] = useSound(Button)
