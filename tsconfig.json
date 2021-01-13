@@ -7,6 +7,7 @@
     "outDir": "dist",
     "sourceMap": false,
     "noEmit": true,
+    "forceConsistentCasingInFileNames": true,
 
     "target": "esnext",
     "module": "esnext",
