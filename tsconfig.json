@@ -1,6 +1,6 @@
 {
   "include": ["src/global.d.ts", "src/**/*.ts", "__tests__/**/*.ts"],
-  "exclude": ["dist", "node_modules"],
+  "exclude": ["dist", "node_modules", "demo"],
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": ".",
