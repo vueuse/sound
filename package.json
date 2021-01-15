@@ -20,7 +20,7 @@
   },
   "scripts": {
     "build": "rollup -c rollup.config.js",
-    "watch": "rollup -w -c rollup.config.js",
+    "dev": "rollup -w -c rollup.config.js",
     "lint": "prettier -c --parser typescript \"{src,__tests__,e2e}/**/*.[jt]s?(x)\"",
     "lint:fix": "yarn run lint --write",
     "test:types": "tsc --build tsconfig.json",
