@@ -8,7 +8,7 @@ import {
   ReturnedValue,
 } from './types'
 
-function useSound(
+export function useSound(
   url: string,
   {
     volume = 1,
@@ -44,8 +44,7 @@ function useSound(
       onload.call(this)
     }
 
-    // @ts-ignore
-    duration = duration * 1000
+    duration.value = duration.value ? duration.value * 1000 : 0
   }
 
   watch(
@@ -134,5 +133,3 @@ function useSound(
 
   return returnedValue
 }
-
-export default useSound
