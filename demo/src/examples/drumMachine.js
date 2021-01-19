@@ -38,7 +38,7 @@ const useKeyboardBindings = (map) => {
 export default {
   components: { Button },
   setup() {
-    const [play] = useSound(drumSfx, {
+    const { play } = useSound(drumSfx, {
       sprite: {
         kick: [0, 350],
         hihat: [374, 160],

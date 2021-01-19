@@ -21,12 +21,12 @@
 
 <script>
 import { onMounted, onUnmounted } from 'vue'
-import useSound from 'vue-use-sound'
+import { useSound } from 'vue-use-sound'
 import drumSfx from '../assets/909-drums.mp3'
-import Button from './Button.vue'
-import CodeHeading from './CodeHeading.vue'
-import CodeBlock from './CodeBlock.vue'
 import CodeText from '../examples/drumMachine.js'
+import Button from './Button.vue'
+import CodeBlock from './CodeBlock.vue'
+import CodeHeading from './CodeHeading.vue'
 
 const useKeyboardBindings = (map) => {
   const handlePress = (ev) => {
@@ -49,7 +49,7 @@ const useKeyboardBindings = (map) => {
 export default {
   components: { Button, CodeHeading, CodeBlock },
   setup() {
-    const [play] = useSound(drumSfx, {
+    const { play } = useSound(drumSfx, {
       sprite: {
         kick: [0, 350],
         hihat: [374, 160],
