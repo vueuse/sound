@@ -11,12 +11,12 @@
 </template>
 
 <script>
-import useSound from 'vue-use-sound'
+import { useSound } from 'vue-use-sound'
 import trumpetSfx from '../assets/fanfare.mp3'
-import CodeBlock from './CodeBlock.vue'
 import CodeText from '../examples/intro.js'
-import CodeHeading from './CodeHeading.vue'
 import Button from './Button.vue'
+import CodeBlock from './CodeBlock.vue'
+import CodeHeading from './CodeHeading.vue'
 
 export default {
   components: {
@@ -25,7 +25,7 @@ export default {
     CodeHeading,
   },
   setup() {
-    const [play, { stop }] = useSound(trumpetSfx)
+    const { play, stop } = useSound(trumpetSfx)
 
     return {
       CodeText,

@@ -15,7 +15,7 @@ export default {
     Button
   },
   setup() {
-    const [play, { stop }] = useSound(trumpetSfx)
+    const { play, stop } = useSound(trumpetSfx)
 
     return {
       play,
