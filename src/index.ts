@@ -120,16 +120,14 @@ export function useSound(
     isPlaying.value = false
   }
 
-  const returnedValue: ReturnedValue = [
+  const returnedValue: ReturnedValue = {
     play,
-    {
-      sound,
-      isPlaying,
-      duration,
-      pause,
-      stop,
-    },
-  ]
+    sound,
+    isPlaying,
+    duration,
+    pause,
+    stop,
+  }
 
   return returnedValue
 }
