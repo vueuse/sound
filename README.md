@@ -1,7 +1,7 @@
-# 🔊 vue-use-sound
+# 🔊 @vueuse/sound
 
-[![npm](https://img.shields.io/npm/v/vue-use-sound.svg)](https://www.npmjs.com/package/vue-use-sound)
-[![npm](https://img.shields.io/npm/dm/vue-use-sound.svg)](https://npm-stat.com/charts.html?package=vue-use-sound)
+[![npm](https://img.shields.io/npm/v/@vueuse/sound.svg)](https://www.npmjs.com/package/@vueuse/sound)
+[![npm](https://img.shields.io/npm/dm/@vueuse/sound.svg)](https://npm-stat.com/charts.html?package=@vueuse/sound)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/991aafcb-635a-457d-93a4-10f4b895c8c5/deploy-status)](https://app.netlify.com/sites/vue-use-sound/deploys)
 
 This library is a Vue version of the [useSound](https://github.com/joshwcomeau/use-sound) React hook by [joshwcomeau](https://github.com/joshwcomeau).
@@ -21,20 +21,20 @@ If you want to take a quick look at the composable in effect, you might want to 
 Package can be added using **yarn**:
 
 ```bash
-yarn add vue-use-sound
+yarn add @vueuse/sound
 ```
 
 Or, use NPM:
 
 ```bash
-npm install vue-use-sound
+npm install @vueuse/sound
 ```
 
 ## Examples
 
 ### Play a sound on click
 
-This is the most basic example of how fast you can implement sounds in your app using vue-use-sound.
+This is the most basic example of how fast you can implement sounds in your app using @vueuse/sound.
 
 ```js
 <template>
@@ -42,12 +42,12 @@ This is the most basic example of how fast you can implement sounds in your app 
 </template>
 
 <script>
-import useSound from 'vue-use-sound'
+import { useSound } from '@vueuse/sound'
 import buttonSfx from '../assets/button.mp3'
 
 export default {
   setup() {
-    const [play] = useSound(buttonSfx)
+    const { play } = useSound(buttonSfx)
 
     return {
       play,
@@ -122,7 +122,7 @@ When calling `useSound`, you can pass it a variety of options:
 - `playbackRate` is a number from `0.5` to `4`. It can be used to slow down or speed up the sample. Like a turntable, changes to speed also affect pitch.
 - `interrupt` specifies whether or not the sound should be able to "overlap" if the `play` function is called again before the sound has ended.
 - `soundEnabled` allows you to pass a value (typically from context or redux or something) to mute all sounds. Note that this can be overridden in the `PlayOptions`, see below
-- `sprite` allows you to use a single `useSound` composable for multiple sound effects. See [“Sprites”](https://github.com/Tahul/vue-use-sound#sprites) below.
+- `sprite` allows you to use a single `useSound` composable for multiple sound effects. See [“Sprites”](https://github.com/vueuse/sound#sprites) below.
 
 `[delegated]` refers to the fact that any additional argument you pass in `ComposableOptions` will be forwarded to the `Howl` constructor. See "Escape hatches" below for more information.
 
@@ -143,7 +143,7 @@ You can call this function without any arguments when you want to trigger the so
 | forceSoundEnabled | boolean |
 | playbackRate      | number  |
 
-- `id` is used for sprite identification. See [“Sprites”](https://github.com/Tahul/vue-use-sound#sprites) below.
+- `id` is used for sprite identification. See [“Sprites”](https://github.com/vueuse/sound#sprites) below.
 - `forceSoundEnabled` allows you to override the `soundEnabled` boolean passed to `ComposableOptions`. You generally never want to do this. The only exception I've found: triggering a sound on the "Mute" button.
 - `playbackRate` is another way you can set a new playback rate, same as in `ComposableOptions`. In general you should prefer to do it through `ComposableOptions`, this is an escape hatch.
 
@@ -247,11 +247,11 @@ For example: Howler [exposes a `fade` method](https://github.com/goldfire/howler
 </template>
 
 <script>
-import useSound from 'vue-use-sound'
+import { useSound } from '@vueuse/sound'
 
 export default {
     setup() {
-        const [play, { sound }] = useSound('/win-theme.mp3')
+        const { play, sound } = useSound('/win-theme.mp3')
 
         return {
             sound
