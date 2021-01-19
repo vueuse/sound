@@ -29,12 +29,12 @@
 </template>
 
 <script>
-import useSound from 'vue-use-sound'
-import { computed, reactive, ref, watch } from 'vue'
+import { ref, watch } from 'vue'
+import { useSound } from 'vue-use-sound'
 import { spring } from 'vue3-spring'
 import popDown from '../assets/pop-down.mp3'
-import popUpOn from '../assets/pop-up-on.mp3'
 import popUpOff from '../assets/pop-up-off.mp3'
+import popUpOn from '../assets/pop-up-on.mp3'
 
 export default {
   model: {
@@ -57,10 +57,10 @@ export default {
       set(value) {
         if (this.value) {
           this.filledSpring.scale = 1.0
-          this.playOn()
+          this.onSound.play()
         } else {
           this.filledSpring.scale = 0
-          this.playOff()
+          this.offSound.play()
         }
 
         this.$emit('update:checked', value)
@@ -69,9 +69,9 @@ export default {
   },
   setup({ checked }) {
     // Sounds
-    const [playActive] = useSound(popDown, { volume: 0.25 })
-    const [playOn] = useSound(popUpOn, { volume: 0.25 })
-    const [playOff] = useSound(popUpOff, { volume: 0.25 })
+    const activeSound = useSound(popDown, { volume: 0.25 })
+    const onSound = useSound(popUpOn, { volume: 0.25 })
+    const offSound = useSound(popUpOff, { volume: 0.25 })
 
     // Refs
     const active = ref(false)
@@ -92,7 +92,7 @@ export default {
     // Watchers
     watch([active], () => {
       if (active.value) {
-        playActive()
+        activeSound.play()
         outlineSpring.scale = 0.8
       } else {
         outlineSpring.scale = 1
@@ -101,9 +101,9 @@ export default {
 
     return {
       active,
-      playActive,
-      playOn,
-      playOff,
+      activeSound,
+      onSound,
+      offSound,
       filledSpring,
       outlineSpring,
     }
