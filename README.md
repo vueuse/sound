@@ -84,7 +84,7 @@ Consider the following snippet of code:
 ```js
 const playbackRate = ref(0.75)
 
-const [play] = useSound('/path/to/sound', { playbackRate })
+const { play } = useSound('/path/to/sound', { playbackRate })
 ```
 
 `playbackRate` doesn't just serve as an _initial_ value for the sound effect. If `playbackRate` changes, the sound will immediately begin playing at a new rate. This is true for all options passed to the `useSound` composable.
@@ -131,7 +131,7 @@ When calling `useSound`, you can pass it a variety of options:
 When calling the composable, you get back a play function as the first item in the tuple:
 
 ```js
-const [play] = useSound('/meow.mp3')
+const { play } = useSound('/meow.mp3')
 //      ^ What we're talking about
 ```
 
@@ -202,7 +202,7 @@ This visualization might make it clearer:
 We can pass our SpriteMap as one of our ComposableOptions:
 
 ```js
-const [play] = useSound('/path/to/sprite.mp3', {
+const { play } = useSound('/path/to/sprite.mp3', {
   sprite: {
     laser: [0, 300],
     explosion: [1000, 300],
@@ -226,7 +226,7 @@ Howler is a very powerful library, and we've only exposed a tiny slice of what i
 First, any unrecognized option you pass to `ComposableOptions` will be delegated to `Howl`. You can see the [full list](https://github.com/goldfire/howler.js#options) of options in the Howler docs. Here's an example of how we can use `onend` to fire a function when our sound stops playing:
 
 ```js
-const [play] = useSound('/thing.mp3', {
+const { play } = useSound('/thing.mp3', {
   onend: () => {
     console.info('Sound ended!')
   },
