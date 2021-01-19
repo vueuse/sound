@@ -1,5 +1,5 @@
 {
-  "name": "vue-use-sound",
+  "name": "@vueuse/sound",
   "license": "MIT",
   "keywords": [
     "vue",
@@ -72,10 +72,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Tahul/vue-use-sound.git"
+    "url": "git+https://github.com/vueuse/sound.git"
   },
   "bugs": {
-    "url": "https://github.com/Tahul/vue-use-sound/issues"
+    "url": "https://github.com/vueuse/sound/issues"
   },
-  "homepage": "https://github.com/Tahul/vue-use-sound#readme"
+  "homepage": "https://github.com/vueuse/sound#readme"
 }
