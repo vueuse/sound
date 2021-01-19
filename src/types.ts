@@ -28,12 +28,11 @@ export interface PlayOptions {
 
 export type PlayFunction = (options?: PlayOptions) => void
 
-export interface ExposedData {
+export interface ReturnedValue {
+  play: PlayFunction
   sound: Ref<Howl | null>
   stop: (id?: number) => void
   pause: (id?: number) => void
   isPlaying: Ref<boolean>
   duration: Ref<number | null>
 }
-
-export type ReturnedValue = [PlayFunction, ExposedData]
