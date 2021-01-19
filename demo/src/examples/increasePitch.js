@@ -16,7 +16,7 @@ export default {
   setup() {
     const playbackRate = ref(0.75)
 
-    const [play] = useSound(glugSfx, {
+    const { play } = useSound(glugSfx, {
       playbackRate,
       interrupt: true,
     })

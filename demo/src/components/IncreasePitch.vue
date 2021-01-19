@@ -12,19 +12,19 @@
 
 <script>
 import { ref } from 'vue'
-import useSound from 'vue-use-sound'
+import { useSound } from 'vue-use-sound'
 import glugSfx from '../assets/glug.mp3'
-import CodeText from '../examples/increatePitch'
-import CodeHeading from './CodeHeading.vue'
-import CodeBlock from './CodeBlock.vue'
+import CodeText from '../examples/increasePitch'
 import Button from './Button.vue'
+import CodeBlock from './CodeBlock.vue'
+import CodeHeading from './CodeHeading.vue'
 
 export default {
   components: { CodeHeading, CodeBlock, Button },
   setup() {
     const playbackRate = ref(0.75)
 
-    const [play] = useSound(glugSfx, {
+    const { play } = useSound(glugSfx, {
       playbackRate,
       interrupt: true,
     })
