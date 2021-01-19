@@ -18,7 +18,7 @@ export default {
   setup() {
     const volume = ref(0.1)
 
-    const [play] = useSound(glugSfx, {
+    const { play } = useSound(glugSfx, {
       volume,
       interrupt: true,
     })

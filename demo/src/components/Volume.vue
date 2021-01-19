@@ -12,7 +12,7 @@
 
 <script>
 import { ref } from 'vue'
-import useSound from 'vue-use-sound'
+import { useSound } from 'vue-use-sound'
 import glugSfx from '../assets/glug.mp3'
 import CodeText from '../examples/volume'
 import Button from './Button.vue'
@@ -24,7 +24,7 @@ export default {
   setup() {
     const volume = ref(0.1)
 
-    const [play] = useSound(glugSfx, {
+    const { play } = useSound(glugSfx, {
       volume,
       interrupt: true,
     })
