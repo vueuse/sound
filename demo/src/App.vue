@@ -39,19 +39,19 @@
 </template>
 
 <script>
-import useSound from 'vue-use-sound'
+import { useSound } from 'vue-use-sound'
 import Button from './assets/button.wav'
+import Checkboxes from './components/Checkboxes.vue'
 import DrumMachine from './components/DrumMachine.vue'
 import IncreasePitch from './components/IncreasePitch.vue'
 import Intro from './components/Intro.vue'
-import Checkboxes from './components/Checkboxes.vue'
 import Volume from './components/Volume.vue'
 
 export default {
   components: { Intro, IncreasePitch, DrumMachine, Checkboxes, Volume },
   name: 'App',
   setup() {
-    const [play] = useSound(Button)
+    const { play } = useSound(Button)
 
     return {
       play,
@@ -60,7 +60,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
 a {
   @apply font-bold transition-colors duration-100 hover:text-pink-500;
 }
