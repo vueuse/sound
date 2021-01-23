@@ -8,7 +8,7 @@
   "dependencies": {
     "prismjs": "^1.22.0",
     "vue": "^3.0.4",
-    "vue-use-sound": "file:..",
+    "@vueuse/sound": "file:..",
     "vue3-spring": "^0.0.2"
   },
   "devDependencies": {
