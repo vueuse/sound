@@ -11,8 +11,8 @@
 </template>
 
 <script>
+import { useSound } from '@vueuse/sound'
 import { ref } from 'vue'
-import { useSound } from 'vue-use-sound'
 import glugSfx from '../assets/glug.mp3'
 import CodeText from '../examples/increasePitch'
 import Button from './Button.vue'

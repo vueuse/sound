@@ -20,8 +20,8 @@
 </template>
 
 <script>
+import { useSound } from '@vueuse/sound'
 import { onMounted, onUnmounted } from 'vue'
-import { useSound } from 'vue-use-sound'
 import drumSfx from '../assets/909-drums.mp3'
 import CodeText from '../examples/drumMachine.js'
 import Button from './Button.vue'

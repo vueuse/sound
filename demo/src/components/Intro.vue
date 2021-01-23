@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { useSound } from 'vue-use-sound'
+import { useSound } from '@vueuse/sound'
 import trumpetSfx from '../assets/fanfare.mp3'
 import CodeText from '../examples/intro.js'
 import Button from './Button.vue'

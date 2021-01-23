@@ -29,8 +29,8 @@
 </template>
 
 <script>
+import { useSound } from '@vueuse/sound'
 import { ref, watch } from 'vue'
-import { useSound } from 'vue-use-sound'
 import { spring } from 'vue3-spring'
 import popDown from '../assets/pop-down.mp3'
 import popUpOff from '../assets/pop-up-off.mp3'

@@ -5,7 +5,7 @@
         class="m-6 text-4xl font-bold cursor-pointer select-none"
         @click="play"
       >
-        🎺&nbsp;vue-use-sound
+        🎺&nbsp;@vueuse/sound
       </h1>
     </div>
 
@@ -16,7 +16,7 @@
     <volume id="volume" class="mt-12" />
 
     <div class="flex flex-col items-center justify-center">
-      <a href="https://github.com/Tahul/vue-use-sound" class="mt-12 mb-6">
+      <a href="https://github.com/VueUse/sound" class="mt-12 mb-6">
         ↩️&nbsp;&nbsp;Bring me back to GitHub
       </a>
 
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { useSound } from 'vue-use-sound'
+import { useSound } from '@vueuse/sound'
 import Button from './assets/button.wav'
 import Checkboxes from './components/Checkboxes.vue'
 import DrumMachine from './components/DrumMachine.vue'
