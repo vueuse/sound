@@ -7,7 +7,7 @@ export default `
 
 <script>
 import { ref } from 'vue'
-import useSound from 'vue-use-sound'
+import { useSound } from '@vueuse/sound'
 import glugSfx from '../assets/glug.mp3'
 import Button from './Button.vue'
 

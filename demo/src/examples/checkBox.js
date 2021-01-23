@@ -30,7 +30,7 @@ export default `
 </template>
 
 <script>
-import { useSound } from 'vue-use-sound'
+import { useSound } from '@vueuse/sound'
 import { computed, reactive, ref, watch } from 'vue'
 import { spring } from 'vue3-spring'
 import popDown from '../assets/pop-down.mp3'

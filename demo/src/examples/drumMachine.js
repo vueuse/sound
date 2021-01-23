@@ -13,7 +13,7 @@ export default `
 
 <script>
 import { onMounted, onUnmounted } from 'vue'
-import useSound from 'vue-use-sound'
+import { useSound } from '@vueuse/sound'
 import drumSfx from '../assets/909-drums.mp3'
 import Button from './Button.vue'
 
