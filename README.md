@@ -4,17 +4,17 @@
 [![npm](https://img.shields.io/npm/dm/@vueuse/sound.svg)](https://npm-stat.com/charts.html?package=@vueuse/sound)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/991aafcb-635a-457d-93a4-10f4b895c8c5/deploy-status)](https://app.netlify.com/sites/vue-use-sound/deploys)
 
-This library is a Vue version of the [useSound](https://github.com/joshwcomeau/use-sound) React hook by [joshwcomeau](https://github.com/joshwcomeau).
+- 👂 Lets your website **communicate** using 2 **human senses** instead of 1
+- 🔥 Built with **Vue** Composition API
+- ✅ Support both Vue **2** and **3** using [**vue-demi**](https://github.com/antfu/vue-demi) by [**antfu**](https://github.com/antfu)
+- 🚚 Also supports **Nuxt**, using [nuxt-use-sound](https://github.com/Tahul/nuxt-use-sound)
+- ⚡️ **<1kb** bytes (gzip) in your **bundle**! **~10kb** loaded **async**.
+- ✨ Built with **TypeScript**
+- 🗣 Uses a powerful, battle-tested audio utility: [**Howler.js**](https://howlerjs.com/)
 
-- 👂 Lets your website communicate using 2 human senses instead of 1
-- 🔥 Best used with Vue Composition API
-- ✅ Support both Vue 2 and Vue 3 using [vue-demi](https://github.com/antfu/vue-demi) by [antfu](https://github.com/antfu)
-- 🚚 Also supports Nuxt, using [nuxt-use-sound](https://github.com/Tahul/nuxt-use-sound)
-- ⚡️ <1kb bytes (gzip) in your bundle! ~10kb loaded async.
-- ✨ Built with TypeScript
-- 🗣 Uses a powerful, battle-tested audio utility: **Howler.js**
+If you want to take a **quick look** at the composable in effect, you should visit the [🌍 **demo**](https://vue-use-sound.netlify.app).
 
-If you want to take a quick look at the composable in effect, you might want to visit the [demo](https://vue-use-sound.netlify.app).
+This package is a **Vue** version of the [**useSound**](https://github.com/joshwcomeau/use-sound) React hook by [**joshwcomeau**](https://github.com/joshwcomeau).
 
 ## Installation
 
