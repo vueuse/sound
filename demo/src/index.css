@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 /* i n d i g o w a v e */
 html {
   @apply h-full;
@@ -18,16 +19,8 @@ body {
 }
 
 /* PrismJS theme fix */
-.token.operator,
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string {
-  background: none;
-}
-
 pre[class*='language-'] {
   margin: 0;
   border-radius: 0;
-  @apply rounded-b-xl text-sm;
+  @apply rounded-b-xl bg-gray-800;
 }
