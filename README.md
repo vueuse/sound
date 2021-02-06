@@ -263,8 +263,8 @@ export default {
 
 ## Credits
 
-All the credit behind this idea goes to [Josh W. Comeau](https://github.com/joshwcomeau).
+All the **credit** behind this **idea** goes to [**Josh W. Comeau**](https://github.com/joshwcomeau).
 
-This packages aims to implement the exact same things as the React [useSound](https://github.com/joshwcomeau) hook, but for Vue and its wonderful Composition API.
+The **documentation** of this package has only been updated for **Vue Composition API** instead of **React Hooks**.
 
-The documentation of this package has only been updated for Vue Composition API instead of React Hooks.
+If you **like** this package, consider **following me** on [**GitHub**](https://github.com/Tahul) and on [**Twitter**](https://twitter.com/yaeeelglx).
