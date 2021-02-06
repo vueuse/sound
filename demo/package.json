@@ -6,9 +6,10 @@
     "build": "vite build"
   },
   "dependencies": {
+    "@vueuse/sound": "file:..",
+    "prism-theme-vars": "^0.1.4",
     "prismjs": "^1.22.0",
     "vue": "^3.0.4",
-    "@vueuse/sound": "file:..",
     "vue3-spring": "^0.0.2"
   },
   "devDependencies": {
