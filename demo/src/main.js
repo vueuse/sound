@@ -1,9 +1,7 @@
+import 'prism-theme-vars/base.css'
+import 'prism-theme-vars/themes/vitesse-dark.css'
 import { createApp } from 'vue'
 import App from './App.vue'
-
-// Styles
-import 'prismjs/themes/prism.css'
-import 'prismjs/themes/prism-okaidia.css'
 import './index.css'
 
 // Mount Vue app
