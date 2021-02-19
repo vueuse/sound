@@ -6,8 +6,8 @@
 
 - 👂 Lets your website **communicate** using 2 **human senses** instead of 1
 - 🔥 Built with **Vue** Composition API
-- ✅ Support both Vue **2** and **3** using [**vue-demi**](https://github.com/antfu/vue-demi) by [**antfu**](https://github.com/antfu)
-- 🚚 Also supports **Nuxt**, using [nuxt-use-sound](https://github.com/Tahul/nuxt-use-sound)
+- ✅ Supports **Vue 2 & 3** using [**vue-demi**](https://github.com/antfu/vue-demi)
+- 🚚 Supports **Nuxt** using [**nuxt-use-sound**](https://github.com/Tahul/nuxt-use-sound)
 - ⚡️ **<1kb** bytes (gzip) in your **bundle**! **~10kb** loaded **async**.
 - ✨ Built with **TypeScript**
 - 🗣 Uses a powerful, battle-tested audio utility: [**Howler.js**](https://howlerjs.com/)
