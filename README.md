@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/@vueuse/sound.svg)](https://www.npmjs.com/package/@vueuse/sound)
 [![npm](https://img.shields.io/npm/dm/@vueuse/sound.svg)](https://npm-stat.com/charts.html?package=@vueuse/sound)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/991aafcb-635a-457d-93a4-10f4b895c8c5/deploy-status)](https://app.netlify.com/sites/vue-use-sound/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/991aafcb-635a-457d-93a4-10f4b895c8c5/deploy-status)](https://app.netlify.com/sites/vueuse-sound/deploys)
 
 - 👂 Lets your website **communicate** using 2 **human senses** instead of 1
 - 🔥 Built with **Vue** Composition API
@@ -12,7 +12,7 @@
 - ✨ Built with **TypeScript**
 - 🗣 Uses a powerful, battle-tested audio utility: [**Howler.js**](https://howlerjs.com/)
 
-If you want to take a **quick look** at the composable in effect, you should visit the [🌍 **demo**](https://vue-use-sound.netlify.app).
+If you want to take a **quick look** at the composable in effect, you should visit the [🌍 **demo**](https://vueuse-sound.netlify.app).
 
 This package is a **Vue** version of the [**useSound**](https://github.com/joshwcomeau/use-sound) React hook by [**joshwcomeau**](https://github.com/joshwcomeau).
 
@@ -59,11 +59,11 @@ export default {
 
 ### Playing on hover
 
-This example is shown in the [demo](https://vue-use-sound.netlify.app#hover).
+This example is shown in the [demo](https://vueuse-sound.netlify.app#hover).
 
 ### Increase pitch on every click
 
-This example is shown in the [demo](https://vue-use-sound.netlify.app#pitch).
+This example is shown in the [demo](https://vueuse-sound.netlify.app#pitch).
 
 ## Usage Notes
 
@@ -178,7 +178,7 @@ const [play, exposedData] = useSound('/meow.mp3')
 
 An audio sprite is a single audio file that holds multiple samples. Instead of loading many individual sounds, you can load a single file and slice it up into multiple sections which can be triggered independently.
 
-> There can be a performance benefit to this, since it's less parallel network requests, but it can also be worth doing this if a single component needs multiple samples. See the [Drum Machine component](https://vue-use-sound.netlify.app#drums) for an example.
+> There can be a performance benefit to this, since it's less parallel network requests, but it can also be worth doing this if a single component needs multiple samples. See the [Drum Machine component](https://vueuse-sound.netlify.app#drums) for an example.
 
 For sprites, we'll need to define a `SpriteMap`. It looks like this:
 
