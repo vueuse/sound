@@ -10,7 +10,7 @@
     "sound",
     "composable"
   ],
-  "version": "1.1.5",
+  "version": "1.1.7",
   "description": "🔊 A Vue composable for playing sound effects",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -42,8 +42,7 @@
     "vue-demi": "latest"
   },
   "optionalDependencies": {
-    "@vue/composition-api": ">=1.0.0-rc.1",
-    "vue": "^2.0.0 || >=3.0.0-rc.0"
+    "@vue/composition-api": ">=1.0.0-rc.1"
   },
   "devDependencies": {
     "vue": "3.0.0",
