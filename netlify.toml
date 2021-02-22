@@ -1,0 +1,11 @@
+[[redirects]]
+  from = "https://sound.vueuse.js.org/*"
+  to = "https://sound.vueuse.org/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://vueuse-sound.netlify.app/*"
+  to = "https://sound.vueuse.org/:splat"
+  status = 301
+  force = true
