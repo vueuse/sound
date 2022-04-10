@@ -15,6 +15,7 @@ export function useSound(
     playbackRate = 1,
     soundEnabled = true,
     interrupt = false,
+    autoplay = false,
     onload,
     ...delegated
   }: ComposableOptions = {},
@@ -32,6 +33,7 @@ export function useSound(
         src: [url],
         volume: unref(volume),
         rate: unref(playbackRate),
+        autoplay: autoplay,
         onload: handleLoad,
         ...delegated,
       })
@@ -45,6 +47,10 @@ export function useSound(
     }
 
     duration.value = duration.value ? duration.value * 1000 : 0
+    
+    if (autoplay) {
+      isPlaying.value = true
+    }
   }
 
   watch(
@@ -55,6 +61,7 @@ export function useSound(
           src: [url],
           volume: unref(volume),
           rate: unref(playbackRate),
+          autoplay: autoplay,
           onload: handleLoad,
           ...delegated,
         })
