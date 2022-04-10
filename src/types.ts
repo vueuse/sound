@@ -16,6 +16,7 @@ export interface ComposableOptions {
   playbackRate?: MaybeRef<number>
   interrupt?: boolean
   soundEnabled?: boolean
+  autoplay?:boolean
   sprite?: SpriteMap
   onload?: () => void
 }
