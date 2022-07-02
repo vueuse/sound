@@ -1,14 +1,13 @@
 import { Howl } from 'howler'
-import { onMounted, ref, unref, watch, Ref, ComputedRef } from 'vue-demi'
+import { onMounted, ref, unref, watch } from 'vue-demi'
 import {
   ComposableOptions,
   HowlStatic,
   PlayFunction,
   PlayOptions,
   ReturnedValue,
+  MaybeRef,
 } from './types'
-
-type MaybeRef<T> = T | Ref<T> | ComputedRef<T>
 
 export function useSound(
   url: MaybeRef<string>,
