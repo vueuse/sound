@@ -1,12 +1,3 @@
-<template>
-  <motion
-    :initial="{ y: 25, opacity: 0 }"
-    :enter="{ y: 0, opacity: 1, delay: 0.25 }"
-  >
-    <div>Pop 🛹</div>
-  </motion>
-</template>
-
 <script>
 import { Motion } from '@vueuse/motion'
 
@@ -16,3 +7,9 @@ export default {
   },
 }
 </script>
+
+<template>
+  <Motion :initial="{ y: 25, opacity: 0 }" :enter="{ y: 0, opacity: 1, delay: 0.25 }">
+    <div>Pop 🛹</div>
+  </Motion>
+</template>

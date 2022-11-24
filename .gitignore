@@ -8,7 +8,6 @@ dist
 package-lock.json
 .DS_Store
 temp
-# Demo
-demo/dist
-demo/dist-ssr
-demo/*.local
+# Nuxt
+.nuxt
+.output

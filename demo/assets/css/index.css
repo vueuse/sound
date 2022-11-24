@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* i n d i g o w a v e */
+html {
+  @apply h-full max-w-full;
+}
+
+/* Flex body */
+body {
+  @apply max-w-full text-white flex items-center justify-center bg-gradient-to-b from-indigo-600 to-indigo-900 bg-cover bg-fixed;
+}
+
+/* Main layout css */
+#__nuxt {
+  @apply w-full md:w-10/12 xl:w-3/4;
+}

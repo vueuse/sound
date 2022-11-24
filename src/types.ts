@@ -1,5 +1,5 @@
-import { Howl, HowlOptions } from 'howler'
-import { ComputedRef, Ref } from 'vue-demi'
+import type { Howl, HowlOptions } from 'howler'
+import type { ComputedRef, Ref } from 'vue-demi'
 
 export interface HowlStatic {
   new (properties: HowlOptions): Howl
@@ -7,7 +7,7 @@ export interface HowlStatic {
 
 export type MaybeRef<T> = T | Ref<T> | ComputedRef<T>
 
-export type SpriteMap = {
+export interface SpriteMap {
   [key: string]: [number, number]
 }
 

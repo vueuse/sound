@@ -1,6 +1,6 @@
-import { Howl } from 'howler'
+import type { Howl } from 'howler'
 import { onMounted, ref, unref, watch } from 'vue-demi'
-import {
+import type {
   ComposableOptions,
   HowlStatic,
   PlayFunction,
@@ -21,40 +21,42 @@ export function useSound(
 ) {
   const HowlConstructor = ref<HowlStatic | null>(null)
   const isPlaying = ref<boolean>(false)
-  let duration = ref<number | null>(null)
-  let sound = ref<Howl | null>(null)
+  const duration = ref<number | null>(null)
+  const sound = ref<Howl | null>(null)
 
-  onMounted(() => {
-    import('howler').then((mod) => {
-      HowlConstructor.value = mod.Howl
-
-      sound.value = new HowlConstructor.value({
-        src: [url],
-        volume: unref(volume),
-        rate: unref(playbackRate),
-        onload: handleLoad,
-        ...delegated,
-      })
-    })
-  })
-
-  const handleLoad = function () {
-    if (typeof onload === 'function') {
-      // @ts-ignore
-      onload.call(this)
-    }
-
+  function handleLoad() {
+    // @ts-expect-error - ?
+    if (typeof onload === 'function') onload.call(this as any)
     duration.value = duration.value ? duration.value * 1000 : 0
   }
+
+  onMounted(async () => {
+    const howler = await import('howler')
+
+    HowlConstructor.value = howler.Howl
+
+    sound.value = new HowlConstructor.value({
+      src: [url],
+      volume: unref(volume) as number,
+      rate: unref(playbackRate) as number,
+      onload: handleLoad,
+      ...delegated,
+    })
+  })
 
   watch(
     () => [url],
     () => {
-      if (HowlConstructor && HowlConstructor.value && sound && sound.value) {
+      if (
+        HowlConstructor.value &&
+        HowlConstructor.value &&
+        sound &&
+        sound.value
+      ) {
         sound.value = new HowlConstructor.value({
           src: [url],
-          volume: unref(volume),
-          rate: unref(playbackRate),
+          volume: unref(volume) as number,
+          rate: unref(playbackRate) as number,
           onload: handleLoad,
           ...delegated,
         })
@@ -66,8 +68,8 @@ export function useSound(
     () => [unref(volume), unref(playbackRate)],
     () => {
       if (sound.value) {
-        sound.value.volume(unref(volume))
-        sound.value.rate(unref(playbackRate))
+        sound.value.volume(unref(volume) as number)
+        sound.value.rate(unref(playbackRate) as number)
       }
     },
   )
@@ -92,7 +94,7 @@ export function useSound(
     sound.value.play(options.id)
 
     sound.value.once('end', () => {
-      if (sound && sound.value && !sound.value.playing()) {
+      if (sound.value && sound.value && !sound.value.playing()) {
         isPlaying.value = false
       }
     })
