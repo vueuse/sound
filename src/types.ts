@@ -11,7 +11,7 @@ export type SpriteMap = {
   [key: string]: [number, number]
 }
 
-export interface ComposableOptions {
+export type ComposableOptions = {
   volume?: MaybeRef<number>
   playbackRate?: MaybeRef<number>
   interrupt?: boolean
@@ -19,7 +19,7 @@ export interface ComposableOptions {
   autoplay?:boolean
   sprite?: SpriteMap
   onload?: () => void
-}
+} & HowlOptions
 
 export interface PlayOptions {
   id?: number

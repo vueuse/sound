@@ -6,10 +6,11 @@ import {
   PlayFunction,
   PlayOptions,
   ReturnedValue,
+  MaybeRef,
 } from './types'
 
 export function useSound(
-  url: string,
+  url: MaybeRef<string>,
   {
     volume = 1,
     playbackRate = 1,
@@ -30,7 +31,7 @@ export function useSound(
       HowlConstructor.value = mod.Howl
 
       sound.value = new HowlConstructor.value({
-        src: [url],
+        src: [unref(url)],
         volume: unref(volume),
         rate: unref(playbackRate),
         autoplay: autoplay,
@@ -46,7 +47,7 @@ export function useSound(
       onload.call(this)
     }
 
-    duration.value = duration.value ? duration.value * 1000 : 0
+    duration.value = (duration.value || sound.value?.duration() || 0) * 1000
     
     if (autoplay === true) {
       isPlaying.value = true
@@ -58,7 +59,7 @@ export function useSound(
     () => {
       if (HowlConstructor && HowlConstructor.value && sound && sound.value) {
         sound.value = new HowlConstructor.value({
-          src: [url],
+          src: [unref(url)],
           volume: unref(volume),
           rate: unref(playbackRate),
           autoplay: autoplay,
