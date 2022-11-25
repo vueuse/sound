@@ -16,7 +16,7 @@ export type ComposableOptions = {
   playbackRate?: MaybeRef<number>
   interrupt?: boolean
   soundEnabled?: boolean
-  autoplay?:boolean
+  autoplay?: boolean
   sprite?: SpriteMap
   onload?: () => void
 } & Omit<HowlOptions, 'src'>
