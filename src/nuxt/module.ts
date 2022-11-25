@@ -68,9 +68,6 @@ export default defineNuxtModule<ModuleOptions>({
       })
     }
 
-    // Create templates directory
-    if (!existsSync(soundsBuildDir)) await mkdir(soundsBuildDir, { recursive: true })
-
     const writeSchema = async (schema: Record<string, HowlOptions>) => {
       const schemaPath = join(nuxt.options.buildDir, 'sounds/index.d.ts')
       const pathType = `export type SoundsPaths = ${Object.keys(schema)
@@ -86,6 +83,9 @@ export default defineNuxtModule<ModuleOptions>({
     }
 
     const writeTargets = async (schema: Record<string, HowlOptions>) => {
+      // Create templates directory
+      if (!existsSync(soundsBuildDir)) await mkdir(soundsBuildDir, { recursive: true })
+
       await writeOptions(schema)
       await writeSchema(schema)
     }
@@ -141,6 +141,9 @@ export default defineNuxtModule<ModuleOptions>({
     }
 
     await writeTargets(soundsConfig)
+
+    nuxt.hook('build:before', async () => await writeTargets(soundsConfig))
+    nuxt.hook('prepare:types', async () => await writeTargets(soundsConfig))
 
     // Transpile necessary packages at build time
     if (!nuxt.options.build.transpile) nuxt.options.build.transpile = []
