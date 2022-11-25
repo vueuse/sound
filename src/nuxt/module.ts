@@ -17,7 +17,7 @@ export interface ModuleOptions {
   scan: string | boolean
 
   /**
-   * An array of sounds to register.
+   * An object of sounds to register.
    *
    * The key will be used as an identifier for the sound to use as shortcut for `useSound(id)`.
    *

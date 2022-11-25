@@ -30,6 +30,54 @@ Or, use NPM:
 npm install @vueuse/sound
 ```
 
+## Nuxt
+
+If you use Nuxt 2, you must have [@nuxt/bridge](https://nuxtjs.org) setup in your project.
+
+Once you installed it, add `@vueuse/sound/nuxt` dependency to your project.
+
+Add `@vueuse/sound/nuxt` to the `modules` section of your `nuxt.config`:
+
+```js
+// nuxt.config.js
+defineNuxtConfig({
+  modules: ['@vueuse/sound/nuxt']
+})
+```
+
+Configure your sounds 🥁:
+
+```js
+// nuxt.config.js
+defineNuxtConfig({
+  sound: {
+    sounds: {
+      back: {
+        src: "/back.wav",
+        options: {
+          volume: 0.25
+        }
+      }
+    }
+  }
+})
+```
+
+You can also automatically scan an generate typings for your sounds in `public/sounds` directory by using **scan** feature:
+
+```js
+// nuxt.config.js
+defineNuxtConfig({
+  sound: {
+    sounds: {
+      scan: true
+    }
+  }
+})
+```
+
+Then move your sounds into `public/sounds` directory, and get autocompletion on `useSound({url})`.
+
 ## Examples
 
 ### Play a sound on click
