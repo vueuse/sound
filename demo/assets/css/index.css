@@ -15,5 +15,5 @@ body {
 
 /* Main layout css */
 #__nuxt {
-  @apply w-full md:w-10/12 xl:w-3/4;
+  @apply w-full md:w-10/12 xl:w-3/4 overflow-x-hidden;
 }
