@@ -11,14 +11,14 @@ export interface SpriteMap {
   [key: string]: [number, number]
 }
 
-export interface ComposableOptions {
+export type ComposableOptions = {
   volume?: MaybeRef<number>
   playbackRate?: MaybeRef<number>
   interrupt?: boolean
   soundEnabled?: boolean
   sprite?: SpriteMap
   onload?: () => void
-}
+} & Omit<HowlOptions, 'src'>
 
 export interface PlayOptions {
   id?: number

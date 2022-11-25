@@ -3,13 +3,14 @@ import { onMounted, ref, unref, watch } from 'vue-demi'
 import type {
   ComposableOptions,
   HowlStatic,
+  MaybeRef,
   PlayFunction,
   PlayOptions,
   ReturnedValue,
 } from './types'
 
 export function useSound(
-  url: string,
+  url: MaybeRef<string>,
   {
     volume = 1,
     playbackRate = 1,
@@ -25,9 +26,8 @@ export function useSound(
   const sound = ref<Howl | null>(null)
 
   function handleLoad() {
-    // @ts-expect-error - ?
     if (typeof onload === 'function') onload.call(this as any)
-    duration.value = duration.value ? duration.value * 1000 : 0
+    duration.value = (duration.value || sound.value?.duration() || 0) * 1000
   }
 
   onMounted(async () => {
@@ -36,7 +36,7 @@ export function useSound(
     HowlConstructor.value = howler.Howl
 
     sound.value = new HowlConstructor.value({
-      src: [url],
+      src: unref(url) as string,
       volume: unref(volume) as number,
       rate: unref(playbackRate) as number,
       onload: handleLoad,
@@ -54,7 +54,7 @@ export function useSound(
         sound.value
       ) {
         sound.value = new HowlConstructor.value({
-          src: [url],
+          src: unref(url) as string,
           volume: unref(volume) as number,
           rate: unref(playbackRate) as number,
           onload: handleLoad,
