@@ -2,7 +2,10 @@ import type { Howl } from 'howler'
 import { onMounted, ref, unref, watch } from 'vue-demi'
 import type { ComposableOptions, HowlStatic, MaybeRef, PlayFunction, PlayOptions, ReturnedValue } from './types'
 
-export function useSound(url: MaybeRef<string>, { volume = 1, playbackRate = 1, soundEnabled = true, interrupt = false, onload, ...delegated }: ComposableOptions = {}) {
+export function useSound(
+  url: MaybeRef<string>,
+  { volume = 1, playbackRate = 1, soundEnabled = true, interrupt = false, autoplay = false, onload, ...delegated }: ComposableOptions = {},
+) {
   const HowlConstructor = ref<HowlStatic | null>(null)
   const isPlaying = ref<boolean>(false)
   const duration = ref<number | null>(null)
@@ -12,6 +15,10 @@ export function useSound(url: MaybeRef<string>, { volume = 1, playbackRate = 1, 
     // @ts-expect-error - ?
     if (typeof onload === 'function') onload.call(this as any)
     duration.value = (duration.value || sound.value?.duration() || 0) * 1000
+
+    if (autoplay === true) {
+      isPlaying.value = true
+    }
   }
 
   onMounted(async () => {
