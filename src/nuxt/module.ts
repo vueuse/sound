@@ -1,13 +1,6 @@
 import { mkdir, writeFile } from 'fs/promises'
 import { existsSync } from 'fs'
-import {
-  addImports,
-  addPlugin,
-  createResolver,
-  defineNuxtModule,
-  resolveModule,
-  useLogger,
-} from '@nuxt/kit'
+import { addImports, addPlugin, createResolver, defineNuxtModule, resolveModule, useLogger } from '@nuxt/kit'
 import { join } from 'pathe'
 import { withLeadingSlash } from 'ufo'
 import { generateTypes, resolveSchema } from 'untyped'
@@ -33,22 +26,7 @@ export interface ModuleOptions {
   sounds: Record<string, HowlOptions>
 }
 
-const SUPPORTED_EXTENSIONS = [
-  'mp3',
-  'mpeg',
-  'opus',
-  'ogg',
-  'oga',
-  'wav',
-  'aac',
-  'caf',
-  'm4a',
-  'mp4',
-  'weba',
-  'webm',
-  'dolby',
-  'flac',
-]
+const SUPPORTED_EXTENSIONS = ['mp3', 'mpeg', 'opus', 'ogg', 'oga', 'wav', 'aac', 'caf', 'm4a', 'mp4', 'weba', 'webm', 'dolby', 'flac']
 
 const DEFAULTS: ModuleOptions = {
   scan: 'public/sounds/',
@@ -71,15 +49,12 @@ export default defineNuxtModule<ModuleOptions>({
   async setup(options, nuxt) {
     const logger = useLogger('🎺')
     const { resolve } = createResolver(import.meta.url)
-    const resolveRuntimeModule = (path: string) =>
-      resolveModule(path, { paths: resolve('./runtime') })
+    const resolveRuntimeModule = (path: string) => resolveModule(path, { paths: resolve('./runtime') })
 
     // Init Runtime Config
     nuxt.options.runtimeConfig.public = nuxt.options.runtimeConfig.public || {}
-    nuxt.options.runtimeConfig.public.sound = nuxt.options.runtimeConfig.public
-      .sound || {
-      scanPath:
-        typeof options.scan === 'string' ? options.scan : 'public/sounds/',
+    nuxt.options.runtimeConfig.public.sound = nuxt.options.runtimeConfig.public.sound || {
+      scanPath: typeof options.scan === 'string' ? options.scan : 'public/sounds/',
     }
     const runtimeConfig = nuxt.options.runtimeConfig.public.sound
 
@@ -94,8 +69,7 @@ export default defineNuxtModule<ModuleOptions>({
     }
 
     // Create templates directory
-    if (!existsSync(soundsBuildDir))
-      await mkdir(soundsBuildDir, { recursive: true })
+    if (!existsSync(soundsBuildDir)) await mkdir(soundsBuildDir, { recursive: true })
 
     const writeSchema = async (schema: Record<string, HowlOptions>) => {
       const schemaPath = join(nuxt.options.buildDir, 'sounds/index.d.ts')
@@ -108,10 +82,7 @@ export default defineNuxtModule<ModuleOptions>({
 
     const writeOptions = async (schema: Record<string, HowlOptions>) => {
       const optionsPath = join(nuxt.options.buildDir, 'sounds/index.ts')
-      await writeFile(
-        optionsPath,
-        `export default ${JSON.stringify(schema, null, 2)}`,
-      )
+      await writeFile(optionsPath, `export default ${JSON.stringify(schema, null, 2)}`)
     }
 
     const writeTargets = async (schema: Record<string, HowlOptions>) => {
@@ -131,20 +102,8 @@ export default defineNuxtModule<ModuleOptions>({
         let scannedSounds: Record<string, HowlOptions> = {}
 
         try {
-          const paths = (
-            await globby(
-              join(
-                nuxt.options.rootDir,
-                runtimeConfig.scanPath,
-                `**/*.{${SUPPORTED_EXTENSIONS.join(',')}}`,
-              ),
-            )
-          ).map((path) =>
-            withLeadingSlash(
-              path
-                .replace(join(nuxt.options.rootDir), '')
-                .replace('public/', ''),
-            ),
+          const paths = (await globby(join(nuxt.options.rootDir, runtimeConfig.scanPath, `**/*.{${SUPPORTED_EXTENSIONS.join(',')}}`))).map((path) =>
+            withLeadingSlash(path.replace(join(nuxt.options.rootDir), '').replace('public/', '')),
           )
 
           scannedSounds = paths.reduce((acc, path) => {
@@ -168,19 +127,11 @@ export default defineNuxtModule<ModuleOptions>({
       nuxt.hook('builder:watch', async (type, path) => {
         if (path.includes(runtimeConfig.scanPath)) {
           if (type === 'add') {
-            logger.success(
-              `You added the sound: ${chalk.greenBright(
-                path.replace(runtimeConfig.scanPath, ''),
-              )}`,
-            )
+            logger.success(`You added the sound: ${chalk.greenBright(path.replace(runtimeConfig.scanPath, ''))}`)
           }
 
           if (type === 'unlink') {
-            logger.success(
-              `You removed the sound: ${chalk.redBright(
-                path.replace(runtimeConfig.scanPath, ''),
-              )}`,
-            )
+            logger.success(`You removed the sound: ${chalk.redBright(path.replace(runtimeConfig.scanPath, ''))}`)
           }
 
           const sounds = await getScannedSounds()
@@ -195,8 +146,7 @@ export default defineNuxtModule<ModuleOptions>({
     if (!nuxt.options.build.transpile) nuxt.options.build.transpile = []
     const transpileList = ['defu', '@vueuse/sound', 'howler']
     transpileList.forEach((pkgName) => {
-      if (!nuxt.options.build.transpile.includes(pkgName))
-        nuxt.options.build.transpile.push(pkgName)
+      if (!nuxt.options.build.transpile.includes(pkgName)) nuxt.options.build.transpile.push(pkgName)
     })
 
     // Inject typings
@@ -205,14 +155,9 @@ export default defineNuxtModule<ModuleOptions>({
         path: join(nuxt.options.buildDir, '/sounds/sounds.d.ts'),
       })
       opts.tsConfig.compilerOptions = opts.tsConfig.compilerOptions || {}
-      opts.tsConfig.compilerOptions.paths =
-        opts.tsConfig.compilerOptions.paths || {}
-      opts.tsConfig.compilerOptions.paths['#build/sounds'] = [
-        '.nuxt/sounds/index.ts',
-      ]
-      opts.tsConfig.compilerOptions.paths['#build/sounds/types'] = [
-        '.nuxt/sounds/index.d.ts',
-      ]
+      opts.tsConfig.compilerOptions.paths = opts.tsConfig.compilerOptions.paths || {}
+      opts.tsConfig.compilerOptions.paths['#build/sounds'] = ['.nuxt/sounds/index.ts']
+      opts.tsConfig.compilerOptions.paths['#build/sounds/types'] = ['.nuxt/sounds/index.d.ts']
     })
 
     // Add $sounds plugin

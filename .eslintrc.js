@@ -5,12 +5,7 @@ module.exports = {
     node: true,
   },
   ignorePatterns: ['dist/**/*', '.output/**/*', '.nuxt/**/*', '*.css', '*.md'],
-  extends: [
-    '@nuxtjs/eslint-config-typescript',
-    '@antfu',
-    'plugin:prettier-vue/recommended',
-    'prettier',
-  ],
+  extends: ['@nuxtjs/eslint-config-typescript', '@antfu', 'plugin:prettier-vue/recommended', 'prettier'],
   settings: {
     'import/ignore': ['vue'],
   },

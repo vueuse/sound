@@ -7,12 +7,7 @@ export default defineNuxtConfig({
     },
   },
   css: ['~/assets/css/index.css'],
-  modules: [
-    soundModule as any,
-    '@nuxtjs/tailwindcss',
-    '@nuxt/content',
-    '@vueuse/motion/nuxt',
-  ],
+  modules: [soundModule as any, '@nuxtjs/tailwindcss', '@nuxt/content', '@vueuse/motion/nuxt'],
   content: {
     documentDriven: true,
     highlight: {
