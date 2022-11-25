@@ -26,6 +26,7 @@ export function useSound(
   const sound = ref<Howl | null>(null)
 
   function handleLoad() {
+    // @ts-expect-error - ?
     if (typeof onload === 'function') onload.call(this as any)
     duration.value = (duration.value || sound.value?.duration() || 0) * 1000
   }
