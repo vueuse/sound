@@ -43,7 +43,7 @@ This is the most basic example of how fast you can implement sounds in your app 
 
 <script>
 import { useSound } from '@vueuse/sound'
-import buttonSfx from '../assets/button.mp3'
+import buttonSfx from '../assets/sounds/button.mp3'
 
 export default {
   setup() {
