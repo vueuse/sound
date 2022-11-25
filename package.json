@@ -45,7 +45,8 @@
     "build:demo": "nuxi generate demo",
     "dev": "nuxi dev demo",
     "prepare": "nuxi prepare demo",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "release": "release-it"
   },
   "peerDependencies": {
     "@vue/composition-api": "^1.0.0-rc.1",
