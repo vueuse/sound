@@ -7,7 +7,7 @@
 - 👂 Lets your website **communicate** using 2 **human senses** instead of 1
 - 🔥 Built with **Vue** Composition API
 - ✅ Supports **Vue 2 & 3** using [**vue-demi**](https://github.com/antfu/vue-demi)
-- 🚚 Supports **Nuxt 2 & 3** using `@vueuse/sound/nuxt`
+- 🚚 Supports **Nuxt 2 & 3** using [`@vueuse/sound/nuxt`](#nuxt)
 - ⚡️ **<1kb** bytes (gzip) in your **bundle**! **~10kb** loaded **async**.
 - ✨ Built with **TypeScript**
 - 🗣 Uses a powerful, battle-tested audio utility: [**Howler.js**](https://howlerjs.com/)
@@ -29,54 +29,6 @@ Or, use NPM:
 ```bash
 npm install @vueuse/sound
 ```
-
-## Nuxt
-
-If you use Nuxt 2, you must have [@nuxt/bridge](https://nuxtjs.org) setup in your project.
-
-Once you installed it, add `@vueuse/sound/nuxt` dependency to your project.
-
-Add `@vueuse/sound/nuxt` to the `modules` section of your `nuxt.config`:
-
-```js
-// nuxt.config.js
-defineNuxtConfig({
-  modules: ['@vueuse/sound/nuxt']
-})
-```
-
-Configure your sounds 🥁:
-
-```js
-// nuxt.config.js
-defineNuxtConfig({
-  sound: {
-    sounds: {
-      back: {
-        src: "/back.wav",
-        options: {
-          volume: 0.25
-        }
-      }
-    }
-  }
-})
-```
-
-You can also automatically scan an generate typings for your sounds in `public/sounds` directory by using **scan** feature:
-
-```js
-// nuxt.config.js
-defineNuxtConfig({
-  sound: {
-    sounds: {
-      scan: true
-    }
-  }
-})
-```
-
-Then move your sounds into `public/sounds` directory, and get autocompletion on `useSound({url})`.
 
 ## Examples
 
@@ -308,6 +260,52 @@ export default {
 }
 </script>
 ```
+
+
+## Nuxt
+
+If you use Nuxt 2, you must have [@nuxt/bridge](https://nuxtjs.org) setup in your project.
+
+Once you installed it, add `@vueuse/sound/nuxt` dependency to your project.
+
+Add `@vueuse/sound/nuxt` to the `modules` section of your `nuxt.config`:
+
+```js
+defineNuxtConfig({
+  modules: ['@vueuse/sound/nuxt']
+})
+```
+
+Configure your sounds 🥁:
+
+```js
+defineNuxtConfig({
+  sound: {
+    sounds: {
+      back: {
+        src: "/back.wav",
+        options: {
+          volume: 0.25
+        }
+      }
+    }
+  }
+})
+```
+
+You can also automatically scan an generate typings for your sounds in `public/sounds` directory by using **scan** feature:
+
+```js
+defineNuxtConfig({
+  sound: {
+    sounds: {
+      scan: true
+    }
+  }
+})
+```
+
+Then move your sounds into `public/sounds` directory, and get autocompletion on `useSound({url})`.
 
 ## Credits
 
