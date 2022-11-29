@@ -260,7 +260,15 @@ export default {
 }
 </script>
 ```
+## Vite
 
+If you are using Vite, you should add the following to your defineConfig options in vite.config.js:
+
+```js
+optimizeDeps: {
+  exclude: ['vue-demi']
+}
+```
 
 ## Nuxt
 
