@@ -24,7 +24,7 @@ export function useSound(
   onMounted(async () => {
     const howler = await import('howler')
 
-    HowlConstructor.value = howler.Howl
+    HowlConstructor.value = howler.default.Howl
 
     sound.value = new HowlConstructor.value({
       src: unref(url) as string,
