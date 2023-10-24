@@ -9,6 +9,10 @@ export default defineNuxtConfig({
           key: 'og:image',
           property: 'og:image',
           content: 'https://sound.vueuse.org/banner.png'
+        },
+        {
+          name: 'twitter:card',
+          content: 'summary_large_image'
         }
       ]
     },
