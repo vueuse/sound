@@ -36,7 +36,7 @@ export function useSound(
   })
 
   watch(
-    () => [url],
+    () => [unref(url)],
     () => {
       if (HowlConstructor.value && HowlConstructor.value && sound && sound.value) {
         sound.value = new HowlConstructor.value({
