@@ -2,6 +2,10 @@ import type { Howl } from 'howler'
 import { onMounted, ref, unref, watch } from 'vue-demi'
 import type { ComposableOptions, HowlStatic, MaybeRef, PlayFunction, PlayOptions, ReturnedValue } from './types'
 
+export type {
+  ComposableOptions
+}
+
 export function useSound(
   url: MaybeRef<string>,
   { volume = 1, playbackRate = 1, soundEnabled = true, interrupt = false, autoplay = false, onload, ...delegated }: ComposableOptions = {},
