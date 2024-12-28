@@ -1,5 +1,5 @@
-import fsExtra from 'fs-extra'
 import consola from 'consola'
+import fsExtra from 'fs-extra'
 import { defineBuildConfig } from 'unbuild'
 
 export default defineBuildConfig({
