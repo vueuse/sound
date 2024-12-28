@@ -1,9 +1,9 @@
 import type { Howl } from 'howler'
-import { onMounted, ref, unref, watch } from 'vue-demi'
 import type { ComposableOptions, HowlStatic, MaybeRef, PlayFunction, PlayOptions, ReturnedValue } from './types'
+import { onMounted, ref, unref, watch } from 'vue-demi'
 
 export type {
-  ComposableOptions
+  ComposableOptions,
 }
 
 export function useSound(
@@ -15,9 +15,8 @@ export function useSound(
   const duration = ref<number | null>(null)
   const sound = ref<Howl | null>(null)
 
-  function handleLoad() {
-    // @ts-expect-error - ?
-    if (typeof onload === 'function') onload.call(this as any)
+  function handleLoad(this: Howl, soundId: number) {
+    if (typeof onload === 'function') onload.call(this, soundId)
     duration.value = (duration.value || sound.value?.duration() || 0) * 1000
 
     if (autoplay === true) {
