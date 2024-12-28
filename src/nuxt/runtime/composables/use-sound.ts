@@ -1,7 +1,7 @@
 import type { SoundsPaths } from '#build/sounds/index.d'
-import type { ComposableOptions } from '../../../types'
+import type { ComposableOptions } from '../../'
 import { useNuxtApp } from '#imports'
-import { useSound as _useSound } from '../../../index'
+import { useSound as _useSound } from '../../'
 
 export function useSound(url: SoundsPaths, options: ComposableOptions = {}) {
   const { $sounds } = useNuxtApp()
