@@ -1,6 +1,6 @@
 {
   "name": "@vueuse/sound",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "🔊 A Vue composable for playing sound effects",
   "author": {
     "name": "Yaël GUILLOUX",
