@@ -96,6 +96,12 @@
     "peerDependencyRules": {
       "ignoreMissing": [
         "webpack"
+      ],
+      "allowAny": [
+        "vite",
+        "nuxi",
+        "@vue/composition-api",
+        "vue"
       ]
     }
   },
