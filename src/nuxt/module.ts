@@ -1,12 +1,12 @@
-import { mkdir, writeFile } from 'fs/promises'
-import { existsSync } from 'fs'
+import type { HowlOptions } from 'howler'
+import { existsSync } from 'node:fs'
+import { mkdir, writeFile } from 'node:fs/promises'
 import { addImports, addPlugin, createResolver, defineNuxtModule, resolveModule, useLogger } from '@nuxt/kit'
+import chalk from 'chalk'
+import { globby } from 'globby'
 import { join } from 'pathe'
 import { withLeadingSlash } from 'ufo'
 import { generateTypes, resolveSchema } from 'untyped'
-import { globby } from 'globby'
-import type { HowlOptions } from 'howler'
-import chalk from 'chalk'
 
 export interface ModuleOptions {
   /**
@@ -14,7 +14,7 @@ export interface ModuleOptions {
    *
    * @default 'public/sounds'
    */
-  scan: string | boolean
+  scan: string | boolean;
 
   /**
    * An object of sounds to register.
@@ -23,7 +23,7 @@ export interface ModuleOptions {
    *
    * If you enable directory scanning mode, this array will be merged with what gets scanned.
    */
-  sounds: Record<string, HowlOptions>
+  sounds: Record<string, HowlOptions>;
 }
 
 const SUPPORTED_EXTENSIONS = ['mp3', 'mpeg', 'opus', 'ogg', 'oga', 'wav', 'aac', 'caf', 'm4a', 'mp4', 'weba', 'webm', 'dolby', 'flac']
@@ -71,7 +71,7 @@ export default defineNuxtModule<ModuleOptions>({
     const writeSchema = async (schema: Record<string, HowlOptions>) => {
       const schemaPath = join(nuxt.options.buildDir, 'sounds/index.d.ts')
       const pathType = `export type SoundsPaths = ${Object.keys(schema)
-        .map((path) => `'${path}'`)
+        .map(path => `'${path}'`)
         .join(' | \n')}`
       const configType = await generateSoundType(schema)
       await writeFile(schemaPath, `${pathType}\n\n${configType}`)
@@ -102,7 +102,7 @@ export default defineNuxtModule<ModuleOptions>({
         let scannedSounds: Record<string, HowlOptions> = {}
 
         try {
-          const paths = (await globby(join(nuxt.options.rootDir, runtimeConfig.scanPath, `**/*.{${SUPPORTED_EXTENSIONS.join(',')}}`))).map((path) =>
+          const paths = (await globby(join(nuxt.options.rootDir, runtimeConfig.scanPath, `**/*.{${SUPPORTED_EXTENSIONS.join(',')}}`))).map(path =>
             withLeadingSlash(path.replace(join(nuxt.options.rootDir), '').replace('public/', '')),
           )
 
@@ -114,7 +114,8 @@ export default defineNuxtModule<ModuleOptions>({
 
             return acc
           }, scannedSounds)
-        } catch (e) {
+        }
+        catch (e) {
           // eslint-disable-next-line no-console
           console.log(e)
         }
@@ -159,13 +160,13 @@ export default defineNuxtModule<ModuleOptions>({
       })
       opts.tsConfig.compilerOptions = opts.tsConfig.compilerOptions || {}
       opts.tsConfig.compilerOptions.paths = opts.tsConfig.compilerOptions.paths || {}
-      opts.tsConfig.compilerOptions.paths['#build/sounds'] = ['.nuxt/sounds/index.ts']
-      opts.tsConfig.compilerOptions.paths['#build/sounds/types'] = ['.nuxt/sounds/index.d.ts']
+      opts.tsConfig.compilerOptions.paths['#sounds'] = ['./.nuxt/sounds/index']
+      opts.tsConfig.compilerOptions.paths['#sounds/types'] = ['./.nuxt/sounds/index.d.ts']
     })
 
     // Add $sounds plugin
     addPlugin({
-      src: resolveRuntimeModule('./plugins/sounds'),
+      src: resolveRuntimeModule('./plugins/sounds.ts'),
     })
 
     // Add auto imports
@@ -173,7 +174,7 @@ export default defineNuxtModule<ModuleOptions>({
       {
         name: 'useSound',
         as: 'useSound',
-        from: resolveRuntimeModule('./composables/use-sound'),
+        from: resolveRuntimeModule('./composables/use-sound.ts'),
       },
     ])
   },
@@ -186,10 +187,10 @@ interface ModulePrivateRuntimeConfig {}
 declare module '@nuxt/schema' {
   interface ConfigSchema {
     publicRuntimeConfig?: {
-      motion: ModulePublicRuntimeConfig
-    }
+      motion: ModulePublicRuntimeConfig;
+    };
     privateRuntimeConfig?: {
-      motion: ModulePrivateRuntimeConfig
-    }
+      motion: ModulePrivateRuntimeConfig;
+    };
   }
 }
