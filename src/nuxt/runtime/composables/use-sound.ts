@@ -1,9 +1,9 @@
+import type { SoundsPaths } from '#build/sounds/index.d'
 import type { ComposableOptions } from '../../../types'
-import { useSound as _useSound } from '../../../index'
-import type { SoundsPaths } from '#build/sounds/types'
 import { useNuxtApp } from '#imports'
+import { useSound as _useSound } from '../../../index'
 
-export const useSound = (url: SoundsPaths, options: ComposableOptions = {}) => {
+export function useSound(url: SoundsPaths, options: ComposableOptions = {}) {
   const { $sounds } = useNuxtApp()
 
   // Merge global sound counfig with local one
