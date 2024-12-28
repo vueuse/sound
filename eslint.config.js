@@ -1,4 +1,4 @@
-const antfu = require('@antfu/eslint-config').default;
+const antfu = require('@antfu/eslint-config').default
 
 module.exports = antfu({
   ignores: ['dist/**/*', '.output/**/*', '.nuxt/**/*', '*.css', '*.md'],
@@ -16,5 +16,6 @@ module.exports = antfu({
     'vue/no-v-text-v-html-on-component': 'off',
     'unused-imports/no-unused-vars': 'off',
     'style/semi': ['error', 'never'],
+    'antfu/no-import-dist': 'off',
   },
 })

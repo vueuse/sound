@@ -1,4 +1,3 @@
-import type { Howl } from 'howler'
 import type { ComposableOptions, HowlStatic, MaybeRef, PlayFunction, PlayOptions, ReturnedValue } from './types'
 import { onMounted, ref, unref, watch } from 'vue-demi'
 
@@ -23,9 +22,11 @@ export function useSound(
   }
 
   onMounted(async () => {
-    const howler = await import('howler').then(imp => imp?.default || imp)
+    // Howler registers `Howl` and `Howler` globally when imported
+    await import('howler')
 
-    HowlConstructor.value = howler.Howl
+    // Use global Howl constructor
+    HowlConstructor.value = Howl
 
     sound.value = new HowlConstructor.value({
       src: unref(url) as string,

@@ -49,7 +49,8 @@ export default {
       if (newVal) {
         activeSound.play()
         outlineVariant.value = 'active'
-      } else {
+      }
+      else {
         outlineVariant.value = 'initial'
       }
     })
@@ -60,7 +61,8 @@ export default {
         if (newVal) {
           onSound.play()
           fillVariant.value = 'active'
-        } else {
+        }
+        else {
           offSound.play()
           fillVariant.value = 'initial'
         }
@@ -92,7 +94,7 @@ export default {
       @mouseup="active = false"
       @mouseout="active = false"
       @click="$emit('update:checked', !checked)"
-    />
+    >
 
     <div class="relative z-10 flex items-center">
       <div ref="outline" class="visible-box relative flex h-10 w-10 items-center justify-center rounded-xl border-4 p-1">

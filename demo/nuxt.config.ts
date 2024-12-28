@@ -1,4 +1,4 @@
-import soundModule from '../src/nuxt/module'
+import soundModule from '../dist/nuxt'
 
 export default defineNuxtConfig({
   app: {
@@ -30,10 +30,6 @@ export default defineNuxtConfig({
 
   tailwindcss: {
     viewer: false,
-  },
-
-  typescript: {
-    includeWorkspace: true,
   },
 
   compatibilityDate: '2024-12-28',
