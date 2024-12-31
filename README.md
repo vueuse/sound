@@ -93,7 +93,7 @@ const { play } = useSound('/path/to/sound', { playbackRate })
 
 The `useSound` composable takes two arguments:
 
-- A URL to the sound that it wil load
+- A URL to the sound that it will load
 - A config object (`ComposableOptions`)
 
 It produces an array with two values:
