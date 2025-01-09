@@ -22,7 +22,7 @@ export type ComposableOptions = {
 } & Omit<HowlOptions, 'src'>
 
 export interface PlayOptions {
-  id?: number
+  id?: string | number
   forceSoundEnabled?: boolean
   playbackRate?: number
 }
